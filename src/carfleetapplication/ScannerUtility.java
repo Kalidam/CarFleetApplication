@@ -12,4 +12,7 @@ public class ScannerUtility {
         System.out.println(outputText);
         return scanner.nextLine();        
     }
+    public static int getIntFromUser(String outputText){
+        return Integer.parseInt(getTextFromUser(outputText));        
+    }
 }
