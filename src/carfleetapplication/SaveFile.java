@@ -4,16 +4,15 @@ package carfleetapplication;
  *
  * @author Damian
  */
-public class SaveFile {
+public abstract class SaveFile {
     
     private String fileLocation="C:\\Program Files\\";
     
-    public SaveFile(String fileLocation){
-        setFileLocation(fileLocation);
+        
+    public String setFileLocation (String textToCommunicate){
+        this.fileLocation=ScannerUtility.getTextFromUser(textToCommunicate);
+        return fileLocation;
     }
     
-    public void setFileLocation (String fileLocation){
-        this.fileLocation=fileLocation;
-    }
     
 }
