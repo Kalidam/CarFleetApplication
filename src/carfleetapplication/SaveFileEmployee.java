@@ -8,17 +8,17 @@ import java.util.ArrayList;
  *
  * @author Damian
  */
-public class SaveFileEmployee extends SaveFile implements Save{
+public class SaveFileEmployee implements Save{
     
     private static ArrayList <Employee> listOfEmploiers = new ArrayList <Employee>();
     
        
     public static void addToList(){
-        String[] fullName = AddEmployee.addEmployee();
-        Employee employee = new Employee(fullName[0], fullName[1]);
+        Employee employee = AddEmployee.addEmployee();
         listOfEmploiers.add(employee);
     }
-    public static void printList(){
+     
+   public static void printList(){
         for (int i=0; i<listOfEmploiers.size(); i++){
             String name = listOfEmploiers.get(i).getName();
             String surname = listOfEmploiers.get(i).getSurname();
@@ -27,7 +27,8 @@ public class SaveFileEmployee extends SaveFile implements Save{
     }
     @Override
     public Boolean saveToFile(){
-        String fileLocation= super.setFileLocation("Podaj ścieżkę docelową dla pliku z danymi pracowników.");
+        SaveFile saveFile = new SaveFile("Podaj ścieżkę docelową dla pliku z danymi pracowników.", new String[]{"txt","xls"});
+        String fileLocation=saveFile.getFileLocation();
         try(PrintWriter pw = new PrintWriter(fileLocation)){
             for (int i=0; i<listOfEmploiers.size();i++){
                 String name = listOfEmploiers.get(i).getName();

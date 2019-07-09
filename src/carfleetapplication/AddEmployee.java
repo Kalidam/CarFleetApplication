@@ -7,13 +7,11 @@ package carfleetapplication;
  */
 public class AddEmployee {
     
-    public static String [] addEmployee(){
+    public static Employee addEmployee(){
         
-        String [] fullName = new String [2];
         String name=ScannerUtility.getTextFromUser("Podaj imię pracownika:");  
         String surname =ScannerUtility.getTextFromUser("Podaj nazwisko pracownika:");
-        fullName[0]=name;
-        fullName[1]=surname;
-        return fullName;
+        Employee employee= new Employee (name,surname);
+        return employee;
     }
 }
