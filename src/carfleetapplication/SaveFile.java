@@ -14,6 +14,7 @@ public class SaveFile {
     
     public SaveFile(String[] extensions){
         setExtensions(extensions);
+        printExtensions();
     }
     
     public void setFileLocation (String fileLocationToCheck){

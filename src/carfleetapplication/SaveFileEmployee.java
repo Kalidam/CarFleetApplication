@@ -25,11 +25,16 @@ public class SaveFileEmployee implements Save{
             System.out.println(i+". "+ name + " " + surname);
         }
     }
+   
+   
+   public static ArrayList getListOfEmployers(){
+       return listOfEmploiers;
+   }
     
     @Override
     public void getFileLocation(){
         SaveFile saveFile = new SaveFile(new String[]{"txt","xls"});
-        saveFile.printExtensions();
+        
         String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj ścieżkę docelową dla pliku z danymi pracowników wraz z jego rozszerzeniem.");
         saveFile.setFileLocation(fileLocationToCheck);
         String fileLocation=saveFile.getFileLocation();
