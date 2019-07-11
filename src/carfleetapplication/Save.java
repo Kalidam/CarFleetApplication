@@ -4,5 +4,5 @@ package carfleetapplication;
 
 public interface Save {
    
-    abstract Boolean saveToFile();
+    abstract void saveToFile();
 }

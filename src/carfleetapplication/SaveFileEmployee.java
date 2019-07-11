@@ -26,8 +26,11 @@ public class SaveFileEmployee implements Save{
         }
     }
     @Override
-    public Boolean saveToFile(){
-        SaveFile saveFile = new SaveFile("Podaj ścieżkę docelową dla pliku z danymi pracowników.", new String[]{"txt","xls"});
+    public void saveToFile(){
+        SaveFile saveFile = new SaveFile(new String[]{"txt","xls"});
+        saveFile.printExtensions();
+        String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj ścieżkę docelową dla pliku z danymi pracowników wraz z jego rozszerzeniem.");
+        saveFile.setFileLocation(fileLocationToCheck);
         String fileLocation=saveFile.getFileLocation();
         try(PrintWriter pw = new PrintWriter(fileLocation)){
             for (int i=0; i<listOfEmploiers.size();i++){
@@ -39,8 +42,6 @@ public class SaveFileEmployee implements Save{
         }
         catch (IOException exc){
             System.err.println("Błąd wejścia/wyjścia.");
-            return false;
         }
-        return true;
     }
 }
