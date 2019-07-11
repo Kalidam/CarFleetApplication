@@ -4,5 +4,6 @@ package carfleetapplication;
 
 public interface Save {
    
-    abstract void saveToFile();
+    abstract void getFileLocation();
+    abstract void saveToFile(String fileLocation);
 }

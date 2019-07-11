@@ -25,13 +25,18 @@ public class SaveFileEmployee implements Save{
             System.out.println(i+". "+ name + " " + surname);
         }
     }
+    
     @Override
-    public void saveToFile(){
+    public void getFileLocation(){
         SaveFile saveFile = new SaveFile(new String[]{"txt","xls"});
         saveFile.printExtensions();
         String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj ścieżkę docelową dla pliku z danymi pracowników wraz z jego rozszerzeniem.");
         saveFile.setFileLocation(fileLocationToCheck);
         String fileLocation=saveFile.getFileLocation();
+        saveToFile(fileLocation);
+    }
+    @Override
+    public void saveToFile(String fileLocation){
         try(PrintWriter pw = new PrintWriter(fileLocation)){
             for (int i=0; i<listOfEmploiers.size();i++){
                 String name = listOfEmploiers.get(i).getName();

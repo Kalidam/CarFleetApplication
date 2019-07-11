@@ -26,7 +26,7 @@ public class SaveFile {
         }
     }
 
-    public boolean checkFileLocation(String fileLocationToCheck){
+    private boolean checkFileLocation(String fileLocationToCheck){
         for (String pattern:patterns){
             if(fileLocationToCheck.matches(pattern)){
                 return true;
