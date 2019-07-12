@@ -9,20 +9,24 @@ import java.util.ArrayList;
 
 public class Car {
 
-    private String brand, model, registrationNumber, name, surname;
-    private ArrayList <Employee> listOfEmploiers;
+    private String brand, model, registrationNumber;
+    private ArrayList <Employee> listOfEmployees;
+    private Employee driver;
     
     public Car (String brand, String model, String registrationNumber, int employeeNumber){
         setListOfEmploies();
+        setDriverFromListOfEmployees(employeeNumber);
         setBrand(brand);
         setModel(model);
         setRegistrationNumber(registrationNumber);
-        setName(employeeNumber);
-
     }
     
     public void setListOfEmploies(){
-        this.listOfEmploiers=SaveFileEmployee.getListOfEmployers();
+        this.listOfEmployees=SaveFileEmployee.getListOfEmployees();
+    }
+    
+    public void setDriverFromListOfEmployees(int employeeNumber){
+        driver=listOfEmployees.get(employeeNumber);
     }
     
     public void setBrand(String brand){
@@ -37,14 +41,6 @@ public class Car {
         this.registrationNumber=registrationNumber;
     }
     
-    public void setName (int employeeNumber){
-        this.name=listOfEmploiers.get(employeeNumber).getName();
-    }
-    
-    public void setSurname (int employeeNumber){
-        this.surname=listOfEmploiers.get(employeeNumber).getSurname();
-    }
-    
     public String getBrand(){
         return brand;
     }
@@ -57,11 +53,19 @@ public class Car {
         return registrationNumber;
     }
     
+    public Employee getDriver(){
+        return driver;
+    }
+    
     public String getName(){
-        return name;
+        return driver.getName();
     }
     
     public String getSurname(){
-        return surname;
+        return driver.getSurname();
+    }
+    
+    public void changeDriver(int changedEmloyeeNumber){
+        setDriverFromListOfEmployees(changedEmloyeeNumber);
     }
 }

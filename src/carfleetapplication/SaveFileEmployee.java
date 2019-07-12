@@ -10,25 +10,25 @@ import java.util.ArrayList;
  */
 public class SaveFileEmployee implements Save{
     
-    private static ArrayList <Employee> listOfEmploiers = new ArrayList <Employee>();
+    private static ArrayList <Employee> listOfEmployees = new ArrayList <Employee>();
     
        
     public static void addToList(){
         Employee employee = AddEmployee.addEmployee();
-        listOfEmploiers.add(employee);
+        listOfEmployees.add(employee);
     }
      
    public static void printList(){
-        for (int i=0; i<listOfEmploiers.size(); i++){
-            String name = listOfEmploiers.get(i).getName();
-            String surname = listOfEmploiers.get(i).getSurname();
+        for (int i=0; i<listOfEmployees.size(); i++){
+            String name = listOfEmployees.get(i).getName();
+            String surname = listOfEmployees.get(i).getSurname();
             System.out.println(i+". "+ name + " " + surname);
         }
     }
    
    
-   public static ArrayList getListOfEmployers(){
-       return listOfEmploiers;
+   public static ArrayList getListOfEmployees(){
+       return listOfEmployees;
    }
     
     @Override
@@ -43,9 +43,9 @@ public class SaveFileEmployee implements Save{
     @Override
     public void saveToFile(String fileLocation){
         try(PrintWriter pw = new PrintWriter(fileLocation)){
-            for (int i=0; i<listOfEmploiers.size();i++){
-                String name = listOfEmploiers.get(i).getName();
-                String surname = listOfEmploiers.get(i).getSurname();
+            for (int i=0; i<listOfEmployees.size();i++){
+                String name = listOfEmployees.get(i).getName();
+                String surname = listOfEmployees.get(i).getSurname();
                 String fullName= name+";"+surname;
                 pw.println(fullName);
             }
