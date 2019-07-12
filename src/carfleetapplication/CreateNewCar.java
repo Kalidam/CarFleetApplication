@@ -9,14 +9,14 @@ package carfleetapplication;
  *
  * @author Damian
  */
-public class AddCar {
+public class CreateNewCar {
     
-    public static Car addCar(){
+    public static Car createCar(){
         
         String brand = ScannerUtility.getTextFromUser("Podaj markę pojazdu.");
         String model = ScannerUtility.getTextFromUser("Podaj model pojazdu.");
         String registrationNumber = ScannerUtility.getTextFromUser("Podaj numer rejestracyjny pojazdu.");
-        SaveFileEmployee.printList();
+        SaveFileEmployee.printListOfEmloyees();
         int employeeNumber= ScannerUtility.getIntFromUser("Wybierz pracownika z listy poprzez podanie jego numeru.");
         Car car = new Car (brand, model, registrationNumber, employeeNumber);
         return car;

@@ -13,16 +13,16 @@ public class SaveFileEmployee implements Save{
     private static ArrayList <Employee> listOfEmployees = new ArrayList <Employee>();
     
        
-    public static void addToList(){
-        Employee employee = AddEmployee.addEmployee();
+    public static void addToEmployeeList(){
+        Employee employee = CreateNewEmployee.createEmployee();
         listOfEmployees.add(employee);
     }
      
-   public static void printList(){
+   public static void printListOfEmloyees(){
         for (int i=0; i<listOfEmployees.size(); i++){
             String name = listOfEmployees.get(i).getName();
             String surname = listOfEmployees.get(i).getSurname();
-            System.out.println(i+". "+ name + " " + surname);
+            System.out.println(i+". "+name+" "+surname);
         }
     }
    
