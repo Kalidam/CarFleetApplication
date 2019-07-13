@@ -1,7 +1,7 @@
 
 package carfleetapplication;
 
-public interface Load {
+public interface LoadFile {
     
     abstract void loadFromFile (String adressToLoadFile);
 }

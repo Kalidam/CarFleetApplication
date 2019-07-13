@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  * @author Damian
  */
-public class SaveFileEmployee implements Save{
+public class SaveFileEmployee implements SaveFile, FileLocation{
     
     private static ArrayList <Employee> listOfEmployees = new ArrayList <Employee>();
     
@@ -33,7 +33,7 @@ public class SaveFileEmployee implements Save{
     
     @Override
     public void getFileLocation(){
-        SaveFile saveFile = new SaveFile(new String[]{"txt","xls"});
+        FileSupport saveFile = new FileSupport(new String[]{"txt","xls"});
         
         String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj ścieżkę docelową dla pliku z danymi pracowników wraz z jego rozszerzeniem.");
         saveFile.setFileLocation(fileLocationToCheck);

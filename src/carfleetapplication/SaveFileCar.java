@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Damian
  */
-public class SaveFileCar implements Save {
+public class SaveFileCar implements SaveFile, FileLocation {
     
     private static ArrayList <Car> listOfCars = new ArrayList<Car>();
     
@@ -31,11 +31,11 @@ public class SaveFileCar implements Save {
     
     @Override
     public void getFileLocation(){
-        SaveFile saveFile = new SaveFile(new String[]{"txt","xls"});
+        FileSupport fileSupport = new FileSupport(new String[]{"txt","xls"});
         
         String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj ścieżkę docelową dla pliku z samochodami wraz z jego rozszerzeniem.");
-        saveFile.setFileLocation(fileLocationToCheck);
-        String fileLocation=saveFile.getFileLocation();
+        fileSupport.setFileLocation(fileLocationToCheck);
+        String fileLocation=fileSupport.getFileLocation();
         saveToFile(fileLocation);
     }
     
