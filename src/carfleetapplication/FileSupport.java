@@ -17,7 +17,7 @@ public class FileSupport {
         printExtensions();
     }
     
-    public void setFileLocation (String fileLocationToCheck){
+    public void setFileLocation(String fileLocationToCheck){
         Boolean isFileLocationCorrect=checkFileLocation(fileLocationToCheck);
         if (isFileLocationCorrect){
             this.fileLocation=fileLocationToCheck;
@@ -40,12 +40,12 @@ public class FileSupport {
         return fileLocation;
     }
     
-    public void setExtensions (String[] extensions){
+    public void setExtensions(String[] extensions){
         this.extensions=extensions;
         setPatterns();
     }
     
-    private void setPatterns (){
+    private void setPatterns(){
         String[] patterns = new String[extensions.length];
         for (int i =0; i<extensions.length; i++){
             patterns[i]=String.format("^[A-Z]:\\\\((\\w*\\s?\\w+)*\\)*((\\w*\\s?\\w+)*.%s)$", extensions[i]);

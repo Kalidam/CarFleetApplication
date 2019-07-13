@@ -15,6 +15,6 @@ public class CreateNewEmployee {
     }
     
     public static Employee createEmployee(String name, String surname){
-        return new Employee (name,surname);
+        return new Employee(name,surname);
     }
 }

@@ -41,7 +41,7 @@ public class Car {
         this.model=model;
     }
     
-    public void setRegistrationNumber (String registrationNumber){
+    public void setRegistrationNumber(String registrationNumber){
         this.registrationNumber=registrationNumber;
     }
     

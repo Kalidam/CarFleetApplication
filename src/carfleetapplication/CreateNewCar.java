@@ -22,7 +22,7 @@ public class CreateNewCar {
     }
     
     public static Car createCar(String brand, String model, String registrationNumber, int employeeNumber){
-        return new Car (brand, model, registrationNumber, employeeNumber);
+        return new Car(brand, model, registrationNumber, employeeNumber);
     }
     
 }

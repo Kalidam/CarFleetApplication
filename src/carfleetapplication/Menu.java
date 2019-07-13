@@ -25,6 +25,7 @@ public class Menu {
         System.out.println("    6.Zmień kierowcę przypisanego do pojazdu.");
         System.out.println("");
         System.out.println("    7. Zakończ program i zapisz wyniki pracy.");
+        System.out.println("");
         
         int selectedOption=ScannerUtility.getIntFromUser("Wybierz jedna z powyższych opcji poprzez podanie jej numeru.");
         return selectedOption;
