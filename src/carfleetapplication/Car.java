@@ -13,7 +13,7 @@ public class Car {
     private ArrayList <Employee> listOfEmployees;
     private Employee driver;
     
-    public Car (String brand, String model, String registrationNumber, int employeeNumber){
+    public Car (String brand, String model, String registrationNumber, int employeeNumber) {
         setListOfEmploies();
         setDriverFromListOfEmployees(employeeNumber);
         setBrand(brand);
@@ -21,11 +21,11 @@ public class Car {
         setRegistrationNumber(registrationNumber);
     }
     
-    public void setListOfEmploies(){
+    public void setListOfEmploies() {
         this.listOfEmployees=SaveFileEmployee.getListOfEmployees();
     }
     
-    public void setDriverFromListOfEmployees(int employeeNumber) throws NullPointerException{
+    public void setDriverFromListOfEmployees(int employeeNumber) throws NullPointerException {
         if(!listOfEmployees.isEmpty()){
             driver=listOfEmployees.get(employeeNumber);
         }else{
@@ -33,43 +33,43 @@ public class Car {
         }
     }
     
-    public void setBrand(String brand){
+    public void setBrand(String brand) {
         this.brand=brand;
     }
     
-    public void setModel(String model){
+    public void setModel(String model) {
         this.model=model;
     }
     
-    public void setRegistrationNumber(String registrationNumber){
+    public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber=registrationNumber;
     }
     
-    public String getBrand(){
+    public String getBrand() {
         return brand;
     }
     
-    public String getModel(){
+    public String getModel() {
         return model;
     }
     
-    public String getRegistrationNumber(){
+    public String getRegistrationNumber() {
         return registrationNumber;
     }
     
-    public Employee getDriver(){
+    public Employee getDriver() {
         return driver;
     }
     
-    public String getName(){
+    public String getName() {
         return driver.getName();
     }
     
-    public String getSurname(){
+    public String getSurname() {
         return driver.getSurname();
     }
     
-    public void changeDriver(int changedEmloyeeNumber){
+    public void changeDriver(int changedEmloyeeNumber) {
         setDriverFromListOfEmployees(changedEmloyeeNumber);
     }
 }

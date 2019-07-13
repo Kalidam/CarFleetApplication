@@ -8,13 +8,8 @@ import java.io.File;
  */
 public class FileExistCheck {
     
-    public Boolean checkIsFileExist(String fileLocation){
-        
+    public static Boolean checkIsFileExists(String fileLocation) {
         File file = new File(fileLocation);
-        if(file.exists()){
-            return true;
-        }
-        return false;
+        return file.exists();
     }
-    
 }

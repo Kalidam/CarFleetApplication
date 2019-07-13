@@ -10,14 +10,11 @@ public class FileSupport {
     private String[] extensions;
     private String[] patterns;
 
-    
-    
-    public FileSupport(String[] extensions){
+    public FileSupport(String[] extensions) {
         setExtensions(extensions);
-        printExtensions();
     }
     
-    public void setFileLocation(String fileLocationToCheck){
+    public void setFileLocation(String fileLocationToCheck) {
         Boolean isFileLocationCorrect=checkFileLocation(fileLocationToCheck);
         if (isFileLocationCorrect){
             this.fileLocation=fileLocationToCheck;
@@ -27,7 +24,7 @@ public class FileSupport {
         }
     }
 
-    private boolean checkFileLocation(String fileLocationToCheck){
+    private boolean checkFileLocation(String fileLocationToCheck) {
         for (String pattern:patterns){
             if(fileLocationToCheck.matches(pattern)){
                 return true;
@@ -36,27 +33,28 @@ public class FileSupport {
         return false;
     }
     
-    public String getFileLocation(){
+    public String getFileLocation() {
         return fileLocation;
     }
     
-    public void setExtensions(String[] extensions){
+    public void setExtensions(String[] extensions) {
         this.extensions=extensions;
         setPatterns();
     }
     
-    private void setPatterns(){
+    private void setPatterns() {
         String[] patterns = new String[extensions.length];
+        final String regexToCheckAbsolutePathAndAcceptableExtension="(^[A-Z]:\\\\((\\w*\\s?\\w+)*\\\\)*((\\w*\\s?\\w+)*.%s)$)";
         for (int i =0; i<extensions.length; i++){
-            patterns[i]=String.format("(^[A-Z]:\\\\((\\w*\\s?\\w+)*\\\\)*((\\w*\\s?\\w+)*.%s)$)", extensions[i]);
+            patterns[i]=String.format(regexToCheckAbsolutePathAndAcceptableExtension, extensions[i]);
         }
         this.patterns=patterns;
     }
     
-    public String[] getExtensions (){
+    public String[] getExtensions() {
         return extensions;
     }
-    public void printExtensions(){
+    public void printExtensions() {
         System.out.println("Dopuszczalne rozszerzenia pliku:");
         for (String extension:extensions){
             System.out.println(extension);

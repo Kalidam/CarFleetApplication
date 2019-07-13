@@ -11,8 +11,7 @@ package carfleetapplication;
  */
 public class Menu {
 
-    public static int menuVisualization(){
-    
+    public static int menuVisualization() {
         System.out.println("");
         System.out.println("    *********************************************");
         System.out.println("    *                   MENU                    *");
@@ -26,18 +25,17 @@ public class Menu {
         System.out.println("");
         System.out.println("    7. Zakończ program i zapisz wyniki pracy.");
         System.out.println("");
-        
-        int selectedOption=ScannerUtility.getIntFromUser("Wybierz jedna z powyższych opcji poprzez podanie jej numeru.");
+        int selectedOption=ScannerUtility.getIntFromUser("Wybierz jedną z powyższych opcji poprzez podanie jej numeru.");
         return selectedOption;
     }
     
-    public static void selectedOption (int selectedOption){
+    public static void selectedOption (int selectedOption) {
         switch (selectedOption){
             case 1:{
                 LoadFileEmployee loadFileEmployee= new LoadFileEmployee();
-                loadFileEmployee.getFileLocation();
+                loadFileEmployee.getFileLocationFromUserAndMakeIOOperaation();
                 LoadFileCar loadFileCar= new LoadFileCar();
-                loadFileCar.getFileLocation();
+                loadFileCar.getFileLocationFromUserAndMakeIOOperaation();
                 break;
             }
             case 2:{
@@ -62,12 +60,11 @@ public class Menu {
             }
             case 7:{
                 SaveFileEmployee saveFileEmployee= new SaveFileEmployee();
-                saveFileEmployee.getFileLocation();
+                saveFileEmployee.getFileLocationFromUserAndMakeIOOperaation();
                 SaveFileCar saveFileCar= new SaveFileCar();
-                saveFileCar.getFileLocation();
+                saveFileCar.getFileLocationFromUserAndMakeIOOperaation();
                 break;
             }
-            
         }
     }
 }

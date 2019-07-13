@@ -8,13 +8,13 @@ import java.util.ArrayList;
  *
  * @author Damian
  */
-public class SaveFileEmployee implements SaveFile, FileLocation{
+public class SaveFileEmployee implements SaveFile {
     
     private static ArrayList <Employee> listOfEmployees = new ArrayList <Employee>();
     
        
     public static void addToEmployeeList(){
-        Employee employee = CreateNewEmployee.setEmployeeData();
+        Employee employee = CreateNewEmployee.createEmployeeFromUserData();
         listOfEmployees.add(employee);
         System.out.println("Pomyślnie dodano pracownika!");
     }
@@ -42,16 +42,16 @@ public class SaveFileEmployee implements SaveFile, FileLocation{
    }
     
     @Override
-    public void getFileLocation(){
-        FileSupport saveFile = new FileSupport(new String[]{"txt","xls"});
-        
-        String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj ścieżkę docelową dla pliku z danymi pracowników wraz z jego rozszerzeniem.");
-        saveFile.setFileLocation(fileLocationToCheck);
-        String fileLocation=saveFile.getFileLocation();
+    public void getFileLocationFromUserAndMakeIOOperaation(){
+        FileSupport fileSupport = new FileSupport(new String[]{"txt","xls"});
+        fileSupport.printExtensions();
+        String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj bezwzględną ścieżkę docelową dla pliku z danymi pracowników wraz z jego rozszerzeniem.");
+        fileSupport.setFileLocation(fileLocationToCheck);
+        String fileLocation=fileSupport.getFileLocation();
         saveToFile(fileLocation);
     }
     @Override
-    public void saveToFile(String fileLocation){
+    public void saveToFile(String fileLocation) {
         try(PrintWriter pw = new PrintWriter(fileLocation)){
             for (int i=0; i<listOfEmployees.size();i++){
                 String name = listOfEmployees.get(i).getName();

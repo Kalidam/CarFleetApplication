@@ -2,7 +2,7 @@
 package carfleetapplication;
 
 
-public interface SaveFile {
+public interface SaveFile extends FileLocation {
    
     abstract void saveToFile(String fileLocation);
 }

@@ -10,34 +10,32 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-public class LoadFileEmployee implements FileLocation, LoadFile {
+public class LoadFileEmployee implements LoadFile {
        
     
     @Override
-    public void getFileLocation(){
+    public void getFileLocationFromUserAndMakeIOOperaation(){
         FileSupport fileSupport = new FileSupport(new String[]{"txt","xls"});
-        
-        String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj ścieżkę docelową w którym znajduje się plik z pracownikami wraz z jego rozszerzeniem.");
+        fileSupport.printExtensions();
+        String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj bezwzględną ścieżkę docelową w którym znajduje się plik z pracownikami wraz z jego rozszerzeniem.");
         fileSupport.setFileLocation(fileLocationToCheck);
         String fileLocation=fileSupport.getFileLocation();
         FileExistCheck fileExistCheck = new FileExistCheck();
-        boolean isFileExist=fileExistCheck.checkIsFileExist(fileLocation);
+        boolean isFileExist=fileExistCheck.checkIsFileExists(fileLocation);
         if(isFileExist){
             loadFromFile(fileLocation);
         }else{
             System.err.println("Brak pliku!");
-            //odwolanie do menu
         }   
     }
     
     
     @Override
-    public void loadFromFile(String adressToLoadFile){
+    public void loadFromFile(String adressToLoadFile) {
         try(FileReader reader = new FileReader(adressToLoadFile);
             BufferedReader br = new BufferedReader(reader)){
-            
             String readedLineFromFile;
-            String [] splitedLine;
+            String[] splitedLine;
             while((readedLineFromFile=br.readLine())!=null){
                 splitedLine=readedLineFromFile.split(";");
                 String name= splitedLine[0];
@@ -49,7 +47,5 @@ public class LoadFileEmployee implements FileLocation, LoadFile {
         catch(IOException exc){
             System.err.println("Błąd wejścia/wyjścia.");
         }
-        
     }
-    
 }

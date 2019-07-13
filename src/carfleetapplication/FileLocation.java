@@ -6,5 +6,5 @@ package carfleetapplication;
  */
 public interface FileLocation {
     
-    abstract void getFileLocation();
+    abstract void getFileLocationFromUserAndMakeIOOperaation();
 }

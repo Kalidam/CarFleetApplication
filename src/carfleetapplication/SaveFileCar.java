@@ -9,26 +9,26 @@ import java.util.ArrayList;
  *
  * @author Damian
  */
-public class SaveFileCar implements SaveFile, FileLocation {
+public class SaveFileCar implements SaveFile {
     
     private static ArrayList <Car> listOfCars = new ArrayList<Car>();
     
-    public static void addToCarList(){
+    public static void addToCarList() {
         Car car = CreateNewCar.setCarData();
         listOfCars.add(car);
         System.out.println("Pomyślnie dodano samochód!");
     }
     
-    public static void addToListCarLoadedFromFile(String brand, String model, String registrationNumber, int employeeNumber){
+    public static void addToListCarLoadedFromFile(String brand, String model, String registrationNumber, int employeeNumber) {
         Car car = CreateNewCar.createCar(brand, model, registrationNumber, employeeNumber);
         listOfCars.add(car);
     }
     
-    public static ArrayList getListOfCars(){
+    public static ArrayList getListOfCars() {
         return listOfCars;
     }
     
-    public static void changeDriver(){
+    public static void changeDriver() {
         SaveFileCar.printListOfCars();
         int selectedCar = ScannerUtility.getIntFromUser("Wybierz samochód, w którym chcesz zmienić kierowcę.");
         SaveFileEmployee.printListOfEmloyees();
@@ -39,7 +39,7 @@ public class SaveFileCar implements SaveFile, FileLocation {
         System.out.println("Pomyślnie zmieniono kierowcę!");
     }
     
-    public static void printListOfCars(){
+    public static void printListOfCars() {
         if(!listOfCars.isEmpty()){
             for (int i=0; i<listOfCars.size(); i++){
                 String brand = listOfCars.get(i).getBrand();
@@ -55,17 +55,17 @@ public class SaveFileCar implements SaveFile, FileLocation {
     }
     
     @Override
-    public void getFileLocation(){
+    public void getFileLocationFromUserAndMakeIOOperaation() {
         FileSupport fileSupport = new FileSupport(new String[]{"txt","xls"});
-        
-        String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj ścieżkę docelową dla pliku z samochodami wraz z jego rozszerzeniem.");
+        fileSupport.printExtensions();
+        String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj bezwzględną ścieżkę docelową dla pliku z samochodami wraz z jego rozszerzeniem.");
         fileSupport.setFileLocation(fileLocationToCheck);
         String fileLocation=fileSupport.getFileLocation();
         saveToFile(fileLocation);
     }
     
     @Override
-    public void saveToFile(String fileLocation){
+    public void saveToFile(String fileLocation) {
         try (PrintWriter pw = new PrintWriter(fileLocation)){
             for(int i=0; i<listOfCars.size(); i++){
                 String brand = listOfCars.get(i).getBrand();
@@ -80,7 +80,5 @@ public class SaveFileCar implements SaveFile, FileLocation {
         catch(IOException exc){
             System.err.println("Błąd wejścia/wyjścia.");
         }
-    
     }
-    
 }
