@@ -25,10 +25,14 @@ public class SaveFileEmployee implements SaveFile, FileLocation{
     }
     
     public static void printListOfEmloyees(){
-        for (int i=0; i<listOfEmployees.size(); i++){
-            String name = listOfEmployees.get(i).getName();
-            String surname = listOfEmployees.get(i).getSurname();
-            System.out.println(i+". "+name+" "+surname);
+        if(!listOfEmployees.isEmpty()){
+            for (int i=0; i<listOfEmployees.size(); i++){
+                String name = listOfEmployees.get(i).getName();
+                String surname = listOfEmployees.get(i).getSurname();
+                System.out.println(i+". "+name+" "+surname);
+            }
+        }else{
+            System.out.println("Lista pracowników jest pusta!");
         }
     }
    

@@ -48,7 +48,7 @@ public class FileSupport {
     private void setPatterns(){
         String[] patterns = new String[extensions.length];
         for (int i =0; i<extensions.length; i++){
-            patterns[i]=String.format("^[A-Z]:\\\\((\\w*\\s?\\w+)*\\)*((\\w*\\s?\\w+)*.%s)$", extensions[i]);
+            patterns[i]=String.format("(^[A-Z]:\\\\((\\w*\\s?\\w+)*\\\\)*((\\w*\\s?\\w+)*.%s)$)", extensions[i]);
         }
         this.patterns=patterns;
     }

@@ -40,13 +40,17 @@ public class SaveFileCar implements SaveFile, FileLocation {
     }
     
     public static void printListOfCars(){
-        for (int i=0; i<listOfCars.size(); i++){
-            String brand = listOfCars.get(i).getBrand();
-            String model = listOfCars.get(i).getModel();
-            String registrationNumber = listOfCars.get(i).getRegistrationNumber();
-            String name = listOfCars.get(i).getName();
-            String surname = listOfCars.get(i).getSurname();
-            System.out.println(i+". "+brand+" "+model+" "+registrationNumber+" "+name+" "+surname);
+        if(!listOfCars.isEmpty()){
+            for (int i=0; i<listOfCars.size(); i++){
+                String brand = listOfCars.get(i).getBrand();
+                String model = listOfCars.get(i).getModel();
+                String registrationNumber = listOfCars.get(i).getRegistrationNumber();
+                String name = listOfCars.get(i).getName();
+                String surname = listOfCars.get(i).getSurname();
+                System.out.println(i+". "+brand+" "+model+" "+registrationNumber+" "+name+" "+surname);
+            }
+        }else{
+            System.out.println("Lista pojazdów jest pusta!");
         }
     }
     

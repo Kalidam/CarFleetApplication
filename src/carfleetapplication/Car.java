@@ -26,7 +26,7 @@ public class Car {
     }
     
     public void setDriverFromListOfEmployees(int employeeNumber) throws NullPointerException{
-        if(listOfEmployees!=null){
+        if(!listOfEmployees.isEmpty()){
             driver=listOfEmployees.get(employeeNumber);
         }else{
             throw new NullPointerException("Lista pracowników jest pusta!");

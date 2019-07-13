@@ -15,9 +15,9 @@ public class CarFleetApplication {
         
         int selectedOption=0;
         while(selectedOption!=7){
-            ScannerUtility.getTextFromUser("Naciśnij enter aby kontynuować");
             selectedOption= Menu.menuVisualization();
             Menu.selectedOption(selectedOption);
+            ScannerUtility.getTextFromUser("Naciśnij enter aby kontynuować");
         }
         System.out.println("Zakończono działanie programu.");
 
