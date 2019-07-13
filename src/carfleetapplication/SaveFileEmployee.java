@@ -16,6 +16,7 @@ public class SaveFileEmployee implements SaveFile, FileLocation{
     public static void addToEmployeeList(){
         Employee employee = CreateNewEmployee.setEmployeeData();
         listOfEmployees.add(employee);
+        System.out.println("Pomyślnie dodano pracownika!");
     }
      
     public static void addToListEmployeeLoadedFromFile(String name, String surname){

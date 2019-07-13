@@ -16,6 +16,7 @@ public class SaveFileCar implements SaveFile, FileLocation {
     public static void addToCarList(){
         Car car = CreateNewCar.setCarData();
         listOfCars.add(car);
+        System.out.println("Pomyślnie dodano samochód!");
     }
     
     public static void addToListCarLoadedFromFile(String brand, String model, String registrationNumber, int employeeNumber){
@@ -35,6 +36,7 @@ public class SaveFileCar implements SaveFile, FileLocation {
         ChangeDriver changeDriver = new ChangeDriver();
         Car car = changeDriver.selectCarToChangeDriver(selectedCar, selectedDriver);
         listOfCars.set(selectedCar, car);
+        System.out.println("Pomyślnie zmieniono kierowcę!");
     }
     
     public static void printListOfCars(){

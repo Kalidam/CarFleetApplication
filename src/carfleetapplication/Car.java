@@ -25,8 +25,12 @@ public class Car {
         this.listOfEmployees=SaveFileEmployee.getListOfEmployees();
     }
     
-    public void setDriverFromListOfEmployees(int employeeNumber){
-        driver=listOfEmployees.get(employeeNumber);
+    public void setDriverFromListOfEmployees(int employeeNumber) throws NullPointerException{
+        if(listOfEmployees!=null){
+            driver=listOfEmployees.get(employeeNumber);
+        }else{
+            throw new NullPointerException("Lista pracowników jest pusta!");
+        }
     }
     
     public void setBrand(String brand){
