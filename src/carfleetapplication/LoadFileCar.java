@@ -3,6 +3,7 @@ package carfleetapplication;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -10,7 +11,7 @@ import java.io.IOException;
  */
 public class LoadFileCar implements FileLocation, LoadFile{
 
-    
+    private ArrayList <Employee> listOfEmployees;
     
     @Override
     public void getFileLocation(){
@@ -35,7 +36,7 @@ public class LoadFileCar implements FileLocation, LoadFile{
     public void loadFromFile(String adressToLoadFile){
         try(FileReader reader = new FileReader(adressToLoadFile);
             BufferedReader br = new BufferedReader(reader)){
-            
+            listOfEmployees=SaveFileEmployee.getListOfEmployees();
             String readedLineFromFile;
             String [] splitedLine;
             while((readedLineFromFile=br.readLine())!=null){
@@ -45,13 +46,30 @@ public class LoadFileCar implements FileLocation, LoadFile{
                 String registrationNumber = splitedLine[2];
                 String name= splitedLine[3];
                 String surname= splitedLine[4];
-                
-                
+                int driverOrderNumber=checkDriver(name, surname);
+                SaveFileCar.addToListCarLoadedFromFile(brand, model, registrationNumber, driverOrderNumber);
             }
+            System.out.println("Wczytano dane zawarte w pliku!");
         }
         catch(IOException exc){
             System.err.println("Błąd wejścia/wyjścia.");
         }
         
+    }
+    
+    public int checkDriver(String name, String surname) throws IllegalArgumentException{
+        int driverOrderNumber=-1;
+            for(int i=0; i<listOfEmployees.size();i++){
+                if(surname.equals(listOfEmployees.get(i).getSurname())){
+                    if(name.equals(listOfEmployees.get(i).getName())){
+                    driverOrderNumber=i;
+                    break;
+                    }
+                }
+            }
+            if (driverOrderNumber<0){
+                throw new IllegalArgumentException("Brak pracownika we wskazanym pliku.");
+            }
+        return driverOrderNumber;
     }
 }

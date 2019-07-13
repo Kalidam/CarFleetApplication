@@ -14,11 +14,16 @@ public class SaveFileEmployee implements SaveFile, FileLocation{
     
        
     public static void addToEmployeeList(){
-        Employee employee = CreateNewEmployee.createEmployee();
+        Employee employee = CreateNewEmployee.setEmployeeData();
         listOfEmployees.add(employee);
     }
      
-   public static void printListOfEmloyees(){
+    public static void addToListEmployeeLoadedFromFile(String name, String surname){
+        Employee employee = CreateNewEmployee.createEmployee(name, surname);
+        listOfEmployees.add(employee);
+    }
+    
+    public static void printListOfEmloyees(){
         for (int i=0; i<listOfEmployees.size(); i++){
             String name = listOfEmployees.get(i).getName();
             String surname = listOfEmployees.get(i).getSurname();

@@ -40,14 +40,11 @@ public class LoadFileEmployee implements FileLocation, LoadFile {
             String [] splitedLine;
             while((readedLineFromFile=br.readLine())!=null){
                 splitedLine=readedLineFromFile.split(";");
-                String brand = splitedLine[0];
-                String model = splitedLine[1];
-                String registrationNumber = splitedLine[2];
-                String name= splitedLine[3];
-                String surname= splitedLine[4];
-                
-                
+                String name= splitedLine[0];
+                String surname= splitedLine[1];
+                SaveFileEmployee.addToListEmployeeLoadedFromFile(name, surname);
             }
+            System.out.println("Wczytano dane zawarte w pliku!");
         }
         catch(IOException exc){
             System.err.println("Błąd wejścia/wyjścia.");

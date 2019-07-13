@@ -13,6 +13,13 @@ public class CarFleetApplication {
 
     public static void main(String[] args) {
         
+        int selectedOption=0;
+        while(selectedOption!=7){
+            selectedOption= Menu.menuVisualization();
+            Menu.selectedOption(selectedOption);
+        }
+        System.out.println("Zakończono działanie programu.");
+
     }
     
 }

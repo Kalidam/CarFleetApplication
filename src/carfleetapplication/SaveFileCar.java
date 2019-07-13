@@ -14,8 +14,27 @@ public class SaveFileCar implements SaveFile, FileLocation {
     private static ArrayList <Car> listOfCars = new ArrayList<Car>();
     
     public static void addToCarList(){
-        Car car = CreateNewCar.createCar();
+        Car car = CreateNewCar.setCarData();
         listOfCars.add(car);
+    }
+    
+    public static void addToListCarLoadedFromFile(String brand, String model, String registrationNumber, int employeeNumber){
+        Car car = CreateNewCar.createCar(brand, model, registrationNumber, employeeNumber);
+        listOfCars.add(car);
+    }
+    
+    public static ArrayList getListOfCars(){
+        return listOfCars;
+    }
+    
+    public static void changeDriver(){
+        SaveFileCar.printListOfCars();
+        int selectedCar = ScannerUtility.getIntFromUser("Wybierz samochód, w którym chcesz zmienić kierowcę.");
+        SaveFileEmployee.printListOfEmloyees();
+        int selectedDriver=ScannerUtility.getIntFromUser("Wybierz kierowcę, którego chcesz przypisać do samochodu.");
+        ChangeDriver changeDriver = new ChangeDriver();
+        Car car = changeDriver.selectCarToChangeDriver(selectedCar, selectedDriver);
+        listOfCars.set(selectedCar, car);
     }
     
     public static void printListOfCars(){
