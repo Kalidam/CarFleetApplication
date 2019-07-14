@@ -15,14 +15,6 @@ public class RemoveEmployeeFromList {
     private static String model;
     private static String registrationNumber;
     
-    private static void setListOfEmployees() {
-        listOfEmployees=SaveFileEmployee.getListOfEmployees();
-    }
-    
-    private static void setListOfCars() {
-        listOfCars=SaveFileCar.getListOfCars();
-    }
-            
     public static Employee selectEmployeeToRemove() {
         setListOfEmployees();
         setListOfCars();
@@ -31,7 +23,15 @@ public class RemoveEmployeeFromList {
         employeeIsDriver(employeeToRemove);
         return removeEmployeeFromList(employeeToRemove);
     }
-
+    
+    private static void setListOfEmployees() {
+        listOfEmployees=SaveFileEmployee.getListOfEmployees();
+    }
+    
+    private static void setListOfCars() {
+        listOfCars=SaveFileCar.getListOfCars();
+    }
+    
     private static Employee removeEmployeeFromList(int employeeToRemove) {
         if(employeeIsDriver(employeeToRemove)){
             selectAnotherDriver();
@@ -43,7 +43,7 @@ public class RemoveEmployeeFromList {
         Employee employeeToCheck=listOfEmployees.get(employeeToRemove);
         for (Car car:listOfCars){
             carNumber++;
-            if(isEmployeeADriver(car, employeeToCheck)){
+            if(isEmployeeNameAndSurnameAreThisSameAsDriver(car, employeeToCheck)){
                 brand=car.getBrand();
                 model=car.getModel();
                 registrationNumber=car.getRegistrationNumber();
@@ -53,7 +53,7 @@ public class RemoveEmployeeFromList {
         return false;
     }
     
-    private static boolean isEmployeeADriver (Car car, Employee employeeToCheck){
+    private static boolean isEmployeeNameAndSurnameAreThisSameAsDriver (Car car, Employee employeeToCheck){
         boolean isSurnameThisSame=car.getSurname().equals(employeeToCheck.getSurname());
         boolean isNameThisSame=car.getName().equals(employeeToCheck.getName());
         return isNameThisSame && isSurnameThisSame;
