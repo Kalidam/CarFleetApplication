@@ -24,7 +24,7 @@ public class SaveFileEmployee implements SaveFile {
     }
     
     public static void removeEmployeeFromFile() {
-        Employee employee=RemoveEmployeeFromList.removeEmployeeFromList();
+        Employee employee=RemoveEmployeeFromList.selectEmployeeToRemove();
         listOfEmployees.remove(employee);
         System.out.println("Pomyślnie usunięto pracownika");
     }
