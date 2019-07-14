@@ -12,23 +12,22 @@ public class SaveFileEmployee implements SaveFile {
     
     private static ArrayList <Employee> listOfEmployees = new ArrayList <Employee>();
     
-       
     public static void addToEmployeeList(){
-        Employee employee = CreateNewEmployee.createEmployeeFromUserData();
+        Employee employee=CreateNewEmployee.createEmployeeFromUserData();
         listOfEmployees.add(employee);
         System.out.println("Pomyślnie dodano pracownika!");
     }
      
     public static void addToListEmployeeLoadedFromFile(String name, String surname){
-        Employee employee = CreateNewEmployee.createEmployee(name, surname);
+        Employee employee=CreateNewEmployee.createEmployee(name, surname);
         listOfEmployees.add(employee);
     }
     
     public static void printListOfEmloyees(){
         if(!listOfEmployees.isEmpty()){
             for (int i=0; i<listOfEmployees.size(); i++){
-                String name = listOfEmployees.get(i).getName();
-                String surname = listOfEmployees.get(i).getSurname();
+                String name=listOfEmployees.get(i).getName();
+                String surname=listOfEmployees.get(i).getSurname();
                 System.out.println(i+". "+name+" "+surname);
             }
         }else{
@@ -43,20 +42,20 @@ public class SaveFileEmployee implements SaveFile {
     
     @Override
     public void getFileLocationFromUserAndMakeIOOperaation(){
-        FileSupport fileSupport = new FileSupport(new String[]{"txt","xls"});
+        FileSupport fileSupport=new FileSupport(new String[]{"txt","xls"});
         fileSupport.printExtensions();
-        String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj bezwzględną ścieżkę docelową dla pliku z danymi pracowników wraz z jego rozszerzeniem.");
+        String fileLocationToCheck=ScannerUtility.getTextFromUser("Podaj bezwzględną ścieżkę docelową dla pliku z danymi pracowników wraz z jego rozszerzeniem.");
         fileSupport.setFileLocation(fileLocationToCheck);
         String fileLocation=fileSupport.getFileLocation();
         saveToFile(fileLocation);
     }
     @Override
     public void saveToFile(String fileLocation) {
-        try(PrintWriter pw = new PrintWriter(fileLocation)){
+        try(PrintWriter pw=new PrintWriter(fileLocation)){
             for (int i=0; i<listOfEmployees.size();i++){
-                String name = listOfEmployees.get(i).getName();
-                String surname = listOfEmployees.get(i).getSurname();
-                String fullName= name+";"+surname;
+                String name=listOfEmployees.get(i).getName();
+                String surname=listOfEmployees.get(i).getSurname();
+                String fullName=name+";"+surname;
                 pw.println(fullName);
             }
         }

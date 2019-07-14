@@ -17,7 +17,7 @@ public class ChangeDriver {
     
     public Car selectCarToChangeDriver(int selectedCar, int selectedDriver) {
         setListOfCars();
-        Car car = listOfCars.get(selectedCar);
+        Car car=listOfCars.get(selectedCar);
         car.changeDriver(selectedDriver);
         return car;
     }

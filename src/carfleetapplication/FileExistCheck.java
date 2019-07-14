@@ -9,7 +9,7 @@ import java.io.File;
 public class FileExistCheck {
     
     public static Boolean checkIsFileExists(String fileLocation) {
-        File file = new File(fileLocation);
+        File file=new File(fileLocation);
         return file.exists();
     }
 }

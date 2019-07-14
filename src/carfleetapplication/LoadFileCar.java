@@ -15,36 +15,34 @@ public class LoadFileCar implements LoadFile {
     
     @Override
     public void getFileLocationFromUserAndMakeIOOperaation(){
-        FileSupport fileSupport = new FileSupport(new String[]{"txt","xls"});
+        FileSupport fileSupport=new FileSupport(new String[]{"txt","xls"});
         fileSupport.printExtensions();
         String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj bezwzględną ścieżkę docelową w którym znajduje się plik z samochodami wraz z jego rozszerzeniem.");
         fileSupport.setFileLocation(fileLocationToCheck);
         String fileLocation=fileSupport.getFileLocation();
-        FileExistCheck fileExistCheck = new FileExistCheck();
+        FileExistCheck fileExistCheck=new FileExistCheck();
         boolean isFileExist=fileExistCheck.checkIsFileExists(fileLocation);
         if(isFileExist){
             loadFromFile(fileLocation);
         }else{
             System.err.println("Brak pliku!");
         }
-        
-        
     }
     
     @Override
     public void loadFromFile(String adressToLoadFile){
-        try(FileReader reader = new FileReader(adressToLoadFile);
-            BufferedReader br = new BufferedReader(reader)){
+        try(FileReader reader=new FileReader(adressToLoadFile);
+            BufferedReader br=new BufferedReader(reader)){
             listOfEmployees=SaveFileEmployee.getListOfEmployees();
             String readedLineFromFile;
             String[] splitedLine;
             while((readedLineFromFile=br.readLine())!=null){
                 splitedLine=readedLineFromFile.split(";");
-                String brand = splitedLine[0];
-                String model = splitedLine[1];
-                String registrationNumber = splitedLine[2];
-                String name= splitedLine[3];
-                String surname= splitedLine[4];
+                String brand=splitedLine[0];
+                String model=splitedLine[1];
+                String registrationNumber=splitedLine[2];
+                String name=splitedLine[3];
+                String surname=splitedLine[4];
                 int driverOrderNumber=checkDriver(name, surname);
                 SaveFileCar.addToListCarLoadedFromFile(brand, model, registrationNumber, driverOrderNumber);
             }

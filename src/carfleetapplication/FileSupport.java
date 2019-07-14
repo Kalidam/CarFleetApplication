@@ -43,7 +43,7 @@ public class FileSupport {
     }
     
     private void setPatterns() {
-        String[] patterns = new String[extensions.length];
+        String[] patterns=new String[extensions.length];
         final String regexToCheckAbsolutePathAndAcceptableExtension="(^[A-Z]:\\\\((\\w*\\s?\\w+)*\\\\)*((\\w*\\s?\\w+)*.%s)$)";
         for (int i =0; i<extensions.length; i++){
             patterns[i]=String.format(regexToCheckAbsolutePathAndAcceptableExtension, extensions[i]);
@@ -54,6 +54,7 @@ public class FileSupport {
     public String[] getExtensions() {
         return extensions;
     }
+    
     public void printExtensions() {
         System.out.println("Dopuszczalne rozszerzenia pliku:");
         for (String extension:extensions){

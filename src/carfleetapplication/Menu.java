@@ -29,13 +29,10 @@ public class Menu {
         return selectedOption;
     }
     
-    public static void selectedOption (int selectedOption) {
+    public static void reactToSelectedOption (int selectedOption) {
         switch (selectedOption){
             case 1:{
-                LoadFileEmployee loadFileEmployee= new LoadFileEmployee();
-                loadFileEmployee.getFileLocationFromUserAndMakeIOOperaation();
-                LoadFileCar loadFileCar= new LoadFileCar();
-                loadFileCar.getFileLocationFromUserAndMakeIOOperaation();
+                loadData();
                 break;
             }
             case 2:{
@@ -59,12 +56,23 @@ public class Menu {
                 break;
             }
             case 7:{
-                SaveFileEmployee saveFileEmployee= new SaveFileEmployee();
-                saveFileEmployee.getFileLocationFromUserAndMakeIOOperaation();
-                SaveFileCar saveFileCar= new SaveFileCar();
-                saveFileCar.getFileLocationFromUserAndMakeIOOperaation();
+                saveData();
                 break;
             }
         }
+    }
+    
+    private static void loadData(){
+        LoadFileEmployee loadFileEmployee=new LoadFileEmployee();
+        loadFileEmployee.getFileLocationFromUserAndMakeIOOperaation();
+        LoadFileCar loadFileCar=new LoadFileCar();
+        loadFileCar.getFileLocationFromUserAndMakeIOOperaation();
+    }
+    
+    private static void saveData(){
+        SaveFileEmployee saveFileEmployee=new SaveFileEmployee();
+        saveFileEmployee.getFileLocationFromUserAndMakeIOOperaation();
+        SaveFileCar saveFileCar=new SaveFileCar();
+        saveFileCar.getFileLocationFromUserAndMakeIOOperaation();
     }
 }
