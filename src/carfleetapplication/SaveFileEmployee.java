@@ -41,8 +41,7 @@ public class SaveFileEmployee implements SaveFile {
         }
     }
    
-   
-   public static ArrayList getListOfEmployees(){
+    public static ArrayList getListOfEmployees(){
        return listOfEmployees;
    }
     

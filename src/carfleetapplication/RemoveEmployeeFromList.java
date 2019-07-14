@@ -43,16 +43,20 @@ public class RemoveEmployeeFromList {
         Employee employeeToCheck=listOfEmployees.get(employeeToRemove);
         for (Car car:listOfCars){
             carNumber++;
-            if(car.getSurname().equals(employeeToCheck.getSurname())){
-                if(car.getName().equals(employeeToCheck.getName())){
-                    brand=car.getBrand();
-                    model=car.getModel();
-                    registrationNumber=car.getRegistrationNumber();
-                    return true;
-                }
+            if(isEmployeeADriver(car, employeeToCheck)){
+                brand=car.getBrand();
+                model=car.getModel();
+                registrationNumber=car.getRegistrationNumber();
+                return true;
             }
         }
         return false;
+    }
+    
+    private static boolean isEmployeeADriver (Car car, Employee employeeToCheck){
+        boolean isSurnameThisSame=car.getSurname().equals(employeeToCheck.getSurname());
+        boolean isNameThisSame=car.getName().equals(employeeToCheck.getName());
+        return isNameThisSame && isSurnameThisSame;
     }
     
     private static void selectAnotherDriver() {

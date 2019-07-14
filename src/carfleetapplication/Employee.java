@@ -25,6 +25,6 @@ public class Employee {
     
     @Override
     public String toString() {
-        return "Imię pracownika "+name+" nazwisko pracownika "+surname;
+        return String.format("Imię pracownika %s nazwisko pracownika %s", name, surname);
     }
 }

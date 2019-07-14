@@ -70,6 +70,6 @@ public class Car {
     
     @Override
     public String toString() {
-        return "Marka "+brand+" model "+model+" numer rejestracyjny "+registrationNumber+" dane kierowcy "+getName()+getSurname();
+        return String.format("Marka %s model %s numer rejestracyjny %s dane kierowcy %s", brand, model, registrationNumber, driver.toString());
     }
 }
