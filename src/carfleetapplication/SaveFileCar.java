@@ -33,11 +33,15 @@ public class SaveFileCar implements SaveFile {
         return listOfCars;
     }
     
-    public static void changeDriver() {
+    public static void selectNewDriverFromUser() {
         SaveFileCar.printListOfCars();
         int selectedCar=ScannerUtility.getIntFromUser("Wybierz samochód, w którym chcesz zmienić kierowcę.");
         SaveFileEmployee.printListOfEmloyees();
         int selectedDriver=ScannerUtility.getIntFromUser("Wybierz kierowcę, którego chcesz przypisać do samochodu.");
+        changeDriver(selectedCar,selectedDriver);
+    }
+    
+    public static void changeDriver(int selectedCar, int selectedDriver) {
         ChangeDriver changeDriver=new ChangeDriver();
         Car car=changeDriver.selectCarToChangeDriver(selectedCar, selectedDriver);
         listOfCars.set(selectedCar, car);

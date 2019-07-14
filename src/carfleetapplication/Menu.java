@@ -39,7 +39,7 @@ public class Menu {
                 break;
             }
             case 6:{
-                SaveFileCar.changeDriver();
+                SaveFileCar.selectNewDriverFromUser();
                 break;
             }
             case 7:{
