@@ -67,4 +67,9 @@ public class Car {
     public void changeDriver(int changedEmloyeeNumber) {
         setDriverFromListOfEmployees(changedEmloyeeNumber);
     }
+    
+    @Override
+    public String toString() {
+        return "Marka "+brand+" model "+model+" numer rejestracyjny "+registrationNumber+" dane kierowcy "+getName()+getSurname();
+    }
 }

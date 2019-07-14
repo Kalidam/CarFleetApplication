@@ -22,4 +22,9 @@ public class Employee {
     public String getSurname() {
         return surname;
     }
+    
+    @Override
+    public String toString() {
+        return "Imię pracownika "+name+" nazwisko pracownika "+surname;
+    }
 }
