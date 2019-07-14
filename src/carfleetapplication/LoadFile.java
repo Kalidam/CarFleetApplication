@@ -1,4 +1,3 @@
-
 package carfleetapplication;
 
 public interface LoadFile extends FileLocation{

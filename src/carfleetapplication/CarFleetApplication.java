@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package carfleetapplication;
 
 /**
@@ -12,7 +7,6 @@ package carfleetapplication;
 public class CarFleetApplication {
 
     public static void main(String[] args) {
-        
         int selectedOption=0;
         final byte EXIT_NUMBER=7;
         while(selectedOption!=EXIT_NUMBER){

@@ -64,9 +64,9 @@ public class LoadFileCar implements LoadFile {
                 }
             }
         }
-            if (driverOrderNumber<0){
-                throw new IllegalArgumentException("Brak pracownika we wskazanym pliku.");
-            }
+        if (driverOrderNumber<0){
+            throw new IllegalArgumentException("Brak pracownika we wskazanym pliku.");
+        }
         return driverOrderNumber;
     }
 }
