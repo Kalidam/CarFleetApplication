@@ -8,7 +8,7 @@ public class CarFleetApplication {
 
     public static void main(String[] args) {
         int selectedOption=0;
-        final byte EXIT_NUMBER=7;
+        final byte EXIT_NUMBER=9;
         while(selectedOption!=EXIT_NUMBER){
             selectedOption=Menu.menuVisualization();
             Menu.reactToSelectedOption(selectedOption);

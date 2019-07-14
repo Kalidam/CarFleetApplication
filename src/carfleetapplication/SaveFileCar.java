@@ -23,6 +23,12 @@ public class SaveFileCar implements SaveFile {
         listOfCars.add(car);
     }
     
+    public static void removeCarFromList() {
+        Car car=RemoveCarFromList.removeCarFromList();
+        listOfCars.remove(car);
+        System.out.println("Pomyślnie usunięto samochód!");
+    }
+    
     public static ArrayList getListOfCars() {
         return listOfCars;
     }

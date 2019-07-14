@@ -43,6 +43,14 @@ public class Menu {
                 break;
             }
             case 7:{
+                SaveFileEmployee.removeEmployeeFromFile();
+                break;
+            }
+            case 8:{
+                SaveFileCar.removeCarFromList();
+                break;
+            }
+            case 9:{
                 saveData();
                 break;
             }
@@ -56,8 +64,10 @@ public class Menu {
         ADD_EMPLOYEE("    4.Dodaj nowego pracownika."),
         ADD_CAR("    5.Dodaj nowy pojazd."),
         SAVE_DATA("    6.Zmień kierowcę przypisanego do pojazdu."),
+        REMOVE_EMPLOYEE("    7.Usuń pracownika z listy."),
+        REMOVE_CAR("    8.Usuń samochód z listy."),
         EMPTY_LINE(""),
-        END_PROGRAM("    7.Zakończ program i zapisz wyniki pracy.");
+        END_PROGRAM("    9.Zakończ program i zapisz wyniki pracy.");
         
         private String messageToShow;
         menuOptions(String messageToshow) {

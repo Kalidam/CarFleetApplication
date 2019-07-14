@@ -23,6 +23,12 @@ public class SaveFileEmployee implements SaveFile {
         listOfEmployees.add(employee);
     }
     
+    public static void removeEmployeeFromFile() {
+        Employee employee=RemoveEmployeeFromList.removeEmployeeFromList();
+        listOfEmployees.remove(employee);
+        System.out.println("Pomyślnie usunięto pracownika");
+    }
+    
     public static void printListOfEmloyees(){
         if(!listOfEmployees.isEmpty()){
             for (int i=0; i<listOfEmployees.size(); i++){
