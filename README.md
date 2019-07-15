@@ -4,7 +4,7 @@ The project was created to manage the company's fleet of vehicles by assigning e
 
 
 ## Author
-* **Damian Kalisz**  *[e-mail contact](kalidam@gmail.com)*
+* **Damian Kalisz**  *[e-mail contact]\email{kalidam@gmail.com}*
 
 
 ## Application's language
@@ -19,7 +19,7 @@ Projekt został stworzony do zarządzania firmową flotą pojazdów poprzez przy
 
 
 ## Autor
-* **Damian Kalisz**  *[kontakt e-mail](kalidam@gmail.com)*
+* **Damian Kalisz**  *[kontakt e-mail]\email{kalidam@gmail.com}*
 
 
 ## Język w którym dostępna jest aplikacja
