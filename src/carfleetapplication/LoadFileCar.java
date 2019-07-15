@@ -20,7 +20,7 @@ public class LoadFileCar implements LoadFile {
         String fileLocationToCheck = ScannerUtility.getTextFromUser("Podaj bezwzględną ścieżkę docelową w którym znajduje się plik z samochodami wraz z jego rozszerzeniem.");
         fileSupport.setFileLocation(fileLocationToCheck);
         String fileLocation=fileSupport.getFileLocation();
-        FileExistCheck fileExistCheck=new FileExistCheck();
+        FileExistChecker fileExistCheck=new FileExistChecker();
         boolean isFileExist=fileExistCheck.checkIsFileExists(fileLocation);
         if(isFileExist){
             loadFromFile(fileLocation);

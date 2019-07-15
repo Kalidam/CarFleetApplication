@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author Dell
  */
-public class RemoveEmployeeFromList {
+public class EmployeeFromListRemover {
     
     private static ArrayList <Employee> listOfEmployees;
     private static ArrayList <Car> listOfCars;

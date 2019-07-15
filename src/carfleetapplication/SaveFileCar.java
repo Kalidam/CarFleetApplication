@@ -13,18 +13,18 @@ public class SaveFileCar implements SaveFile {
     private static ArrayList <Car> listOfCars = new ArrayList<Car>();
     
     public static void addToCarList() {
-        Car car=CreateNewCar.setCarData();
+        Car car=NewCarCreator.setCarData();
         listOfCars.add(car);
         System.out.println("Pomyślnie dodano samochód!");
     }
     
     public static void addToListCarLoadedFromFile(String brand, String model, String registrationNumber, int employeeNumber) {
-        Car car=CreateNewCar.createCar(brand, model, registrationNumber, employeeNumber);
+        Car car=NewCarCreator.createCar(brand, model, registrationNumber, employeeNumber);
         listOfCars.add(car);
     }
     
     public static void removeCarFromList() {
-        Car car=RemoveCarFromList.removeCarFromList();
+        Car car=CarFromListRemover.removeCarFromList();
         listOfCars.remove(car);
         System.out.println("Pomyślnie usunięto samochód!");
     }
@@ -42,7 +42,7 @@ public class SaveFileCar implements SaveFile {
     }
     
     public static void changeDriver(int selectedCar, int selectedDriver) {
-        ChangeDriver changeDriver=new ChangeDriver();
+        DriverChanger changeDriver=new DriverChanger();
         Car car=changeDriver.selectCarToChangeDriver(selectedCar, selectedDriver);
         listOfCars.set(selectedCar, car);
         System.out.println("Pomyślnie zmieniono kierowcę!");
@@ -51,12 +51,7 @@ public class SaveFileCar implements SaveFile {
     public static void printListOfCars() {
         if(!listOfCars.isEmpty()){
             for (int i=0; i<listOfCars.size(); i++){
-                String brand=listOfCars.get(i).getBrand();
-                String model=listOfCars.get(i).getModel();
-                String registrationNumber=listOfCars.get(i).getRegistrationNumber();
-                String name=listOfCars.get(i).getName();
-                String surname=listOfCars.get(i).getSurname();
-                System.out.println(i+". "+brand+" "+model+" "+registrationNumber+" "+name+" "+surname);
+                System.out.println(i+". "+listOfCars.toString());
             }
         }else{
             System.out.println("Lista pojazdów jest pusta!");

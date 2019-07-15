@@ -4,7 +4,7 @@ package carfleetapplication;
  *
  * @author Damian
  */
-public interface FileLocation {
+public interface FileLocator {
     
     abstract void getFileLocationFromUserAndMakeIOOperaation();
 }

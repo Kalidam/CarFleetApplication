@@ -4,7 +4,7 @@ package carfleetapplication;
  *
  * @author Damian
  */
-public class CreateNewCar {
+public class NewCarCreator {
     
     public static Car setCarData() {
         String brand=ScannerUtility.getTextFromUser("Podaj markę pojazdu.");

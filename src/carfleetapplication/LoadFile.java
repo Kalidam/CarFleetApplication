@@ -1,6 +1,6 @@
 package carfleetapplication;
 
-public interface LoadFile extends FileLocation{
+public interface LoadFile extends FileLocator{
     
     abstract void loadFromFile(String adressToLoadFile);
 }

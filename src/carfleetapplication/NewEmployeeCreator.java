@@ -4,7 +4,7 @@ package carfleetapplication;
  *
  * @author Damian
  */
-public class CreateNewEmployee {
+public class NewEmployeeCreator {
     
     public static Employee createEmployeeFromUserData() {
         String name=ScannerUtility.getTextFromUser("Podaj imię pracownika:");  

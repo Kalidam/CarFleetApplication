@@ -13,18 +13,18 @@ public class SaveFileEmployee implements SaveFile {
     private static ArrayList <Employee> listOfEmployees = new ArrayList <Employee>();
     
     public static void addToEmployeeList(){
-        Employee employee=CreateNewEmployee.createEmployeeFromUserData();
+        Employee employee=NewEmployeeCreator.createEmployeeFromUserData();
         listOfEmployees.add(employee);
         System.out.println("Pomyślnie dodano pracownika!");
     }
      
     public static void addToListEmployeeLoadedFromFile(String name, String surname){
-        Employee employee=CreateNewEmployee.createEmployee(name, surname);
+        Employee employee=NewEmployeeCreator.createEmployee(name, surname);
         listOfEmployees.add(employee);
     }
     
     public static void removeEmployeeFromFile() {
-        Employee employee=RemoveEmployeeFromList.selectEmployeeToRemove();
+        Employee employee=EmployeeFromListRemover.selectEmployeeToRemove();
         listOfEmployees.remove(employee);
         System.out.println("Pomyślnie usunięto pracownika");
     }
@@ -32,9 +32,7 @@ public class SaveFileEmployee implements SaveFile {
     public static void printListOfEmloyees(){
         if(!listOfEmployees.isEmpty()){
             for (int i=0; i<listOfEmployees.size(); i++){
-                String name=listOfEmployees.get(i).getName();
-                String surname=listOfEmployees.get(i).getSurname();
-                System.out.println(i+". "+name+" "+surname);
+                System.out.println(i+". "+listOfEmployees.toString());
             }
         }else{
             System.out.println("Lista pracowników jest pusta!");

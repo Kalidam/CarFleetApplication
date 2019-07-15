@@ -6,7 +6,7 @@ import java.io.File;
  *
  * @author Damian
  */
-public class FileExistCheck {
+public class FileExistChecker {
     
     public static Boolean checkIsFileExists(String fileLocation) {
         File file=new File(fileLocation);
