@@ -19,7 +19,7 @@ Projekt został stworzony do zarządzania firmową flotą pojazdów poprzez przy
 
 
 ## Autor
-* **Damian Kalisz**  *[kontakt e-mail](kalidam@gmail.com)*
+* **Damian Kalisz**  *[kontakt e-mail](mailto:kalidam@gmail.com)*
 
 
 ## Język w którym dostępna jest aplikacja
