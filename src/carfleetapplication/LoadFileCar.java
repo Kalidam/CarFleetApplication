@@ -44,7 +44,8 @@ public class LoadFileCar implements LoadFile {
                 String name=splitedLine[3];
                 String surname=splitedLine[4];
                 int driverOrderNumber=checkDriver(name, surname);
-                SaveFileCar.addToListCarLoadedFromFile(brand, model, registrationNumber, driverOrderNumber);
+                CarOverview carOverview=new CarOverview(model, brand);
+                SaveFileCar.addToListCarLoadedFromFile(carOverview, registrationNumber, driverOrderNumber);
             }
             System.out.println("Wczytano dane zawarte w pliku!");
         }

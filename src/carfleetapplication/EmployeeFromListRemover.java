@@ -11,9 +11,7 @@ public class EmployeeFromListRemover {
     private static ArrayList <Employee> listOfEmployees;
     private static ArrayList <Car> listOfCars;
     private static int carNumber=-1;
-    private static String brand;
-    private static String model;
-    private static String registrationNumber;
+    private static String brand, model, registrationNumber;
     
     public static Employee selectEmployeeToRemove() {
         setListOfEmployees();

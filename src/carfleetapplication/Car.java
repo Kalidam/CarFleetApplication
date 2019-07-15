@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class Car {
 
-    private String brand, model, registrationNumber;
+    private String registrationNumber;
+    private CarOverview carOverview;
     private ArrayList <Employee> listOfEmployees;
     private Employee driver;
     
-    public Car (String brand, String model, String registrationNumber, int employeeNumber) {
+    public Car (CarOverview carOverview, String registrationNumber, int employeeNumber) {
         setListOfEmploies();
+        setCarOverview(carOverview);
         setDriverFromListOfEmployees(employeeNumber);
-        setBrand(brand);
-        setModel(model);
         setRegistrationNumber(registrationNumber);
     }
     
@@ -28,12 +28,8 @@ public class Car {
         }
     }
     
-    public void setBrand(String brand) {
-        this.brand=brand;
-    }
-    
-    public void setModel(String model) {
-        this.model=model;
+    public void setCarOverview(CarOverview carOverview) {
+        this.carOverview=carOverview;
     }
     
     public void setRegistrationNumber(String registrationNumber) {
@@ -41,11 +37,11 @@ public class Car {
     }
     
     public String getBrand() {
-        return brand;
+        return carOverview.getBrand();
     }
     
     public String getModel() {
-        return model;
+        return carOverview.getModel();
     }
     
     public String getRegistrationNumber() {
@@ -70,6 +66,6 @@ public class Car {
     
     @Override
     public String toString() {
-        return String.format("Marka %s model %s numer rejestracyjny %s dane kierowcy %s", brand, model, registrationNumber, driver.toString());
+        return String.format("Marka %s model %s numer rejestracyjny %s dane kierowcy %s", carOverview.getBrand(), carOverview.getModel(), registrationNumber, driver.toString());
     }
 }

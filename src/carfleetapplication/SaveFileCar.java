@@ -18,8 +18,8 @@ public class SaveFileCar implements SaveFile {
         System.out.println("Pomyślnie dodano samochód!");
     }
     
-    public static void addToListCarLoadedFromFile(String brand, String model, String registrationNumber, int employeeNumber) {
-        Car car=NewCarCreator.createCar(brand, model, registrationNumber, employeeNumber);
+    public static void addToListCarLoadedFromFile(CarOverview carOverview, String registrationNumber, int employeeNumber) {
+        Car car=NewCarCreator.createCar(carOverview, registrationNumber, employeeNumber);
         listOfCars.add(car);
     }
     
