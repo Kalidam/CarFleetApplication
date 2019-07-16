@@ -69,7 +69,7 @@ public class Car {
         if (getClass() != obj.getClass())
             return false;
         Car other = (Car) obj;
-        boolean areRegistrationNumberEqual=EqualsUtility.areStringsEqual(registrationNumber, other.registrationNumber);
+        boolean areRegistrationNumberEqual=EqualsUtility.areObjectsEqual(registrationNumber, other.registrationNumber);
         boolean isCarOverviewTrue=carOverview.equals(other.carOverview);
         boolean isDriverTrue=driver.equals(other.driver);
         return areRegistrationNumberEqual && isCarOverviewTrue && isDriverTrue;

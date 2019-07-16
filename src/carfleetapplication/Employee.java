@@ -42,8 +42,8 @@ public class Employee {
         if (getClass() != obj.getClass())
             return false;
         Employee other = (Employee) obj;
-        boolean areNameEqual=EqualsUtility.areStringsEqual(name, other.name);
-        boolean areSurnameEqual=EqualsUtility.areStringsEqual(surname, other.surname);
+        boolean areNameEqual=EqualsUtility.areObjectsEqual(name, other.name);
+        boolean areSurnameEqual=EqualsUtility.areObjectsEqual(surname, other.surname);
         return areNameEqual && areSurnameEqual;
     }
 

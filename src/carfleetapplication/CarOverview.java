@@ -39,8 +39,8 @@ public class CarOverview {
         if (getClass() != obj.getClass())
             return false;
         CarOverview other = (CarOverview) obj;
-        boolean areBrandsEqual=EqualsUtility.areStringsEqual(brand, other.brand);
-        boolean areModelEqual=EqualsUtility.areStringsEqual(model, other.model);
+        boolean areBrandsEqual=EqualsUtility.areObjectsEqual(brand, other.brand);
+        boolean areModelEqual=EqualsUtility.areObjectsEqual(model, other.model);
         return areBrandsEqual && areModelEqual;
     }
 
