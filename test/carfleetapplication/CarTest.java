@@ -1,69 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package carfleetapplication;
 
+import java.lang.reflect.Field;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Dell
+ * @author Damian
  */
 public class CarTest {
     
-    public CarTest() {
-    }
+    private Car car;
     
     @Before
     public void setUp() {
+        String brand="Opel";
+        String model="Astra";
+        CarOverview carOverview=new CarOverview(brand,model);
+        String name="Jan";
+        String surname="Kowalski";
+        Employee driver=new Employee(name,surname);
+        String registrationNumber="WPI 1234X";
+        car=new Car(carOverview,registrationNumber,driver);
     }
 
     /**
-     * Test of setListOfEmploies method, of class Car.
+     * Test of setDriver method, of class Car.
      */
     @Test
-    public void testSetListOfEmploies() {
-        System.out.println("setListOfEmploies");
+    public void testSetDriver() {
+        System.out.println("setDriver");
+        Employee driver = null;
         Car instance = null;
-        instance.setListOfEmploies();
+        instance.setDriver(driver);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setDriverFromListOfEmployees method, of class Car.
+     * Test of getDriver method, of class Car.
      */
     @Test
-    public void testSetDriverFromListOfEmployees() {
-        System.out.println("setDriverFromListOfEmployees");
-        int employeeNumber = 0;
+    public void testGetDriver() {
+        System.out.println("getDriver");
         Car instance = null;
-        instance.setDriverFromListOfEmployees(employeeNumber);
+        Employee expResult = null;
+        Employee result = instance.getDriver();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setBrand method, of class Car.
+     * Test of setCarOverview method, of class Car.
      */
     @Test
-    public void testSetBrand() {
-        System.out.println("setBrand");
-        String brand = "";
+    public void testSetCarOverview() {
+        System.out.println("setCarOverview");
+        CarOverview carOverview = null;
         Car instance = null;
-        instance.setBrand(brand);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setModel method, of class Car.
-     */
-    @Test
-    public void testSetModel() {
-        System.out.println("setModel");
-        String model = "";
-        Car instance = null;
-        instance.setModel(model);
+        instance.setCarOverview(carOverview);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -72,13 +74,16 @@ public class CarTest {
      * Test of setRegistrationNumber method, of class Car.
      */
     @Test
-    public void testSetRegistrationNumber() {
+    public void testSetRegistrationNumber() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("setRegistrationNumber");
-        String registrationNumber = "";
-        Car instance = null;
-        instance.setRegistrationNumber(registrationNumber);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String REGISTRATION_NUMBER = "our registration number";
+        final String FIELD_NAME = "registrationNumber";
+        
+        car.setRegistrationNumber(REGISTRATION_NUMBER); 
+        final Field field = car.getClass().getDeclaredField(FIELD_NAME);
+        field.setAccessible(true);
+        
+        assertEquals("Pola nie pasują", field.get(car), REGISTRATION_NUMBER);
     }
 
     /**
@@ -124,20 +129,6 @@ public class CarTest {
     }
 
     /**
-     * Test of getDriver method, of class Car.
-     */
-    @Test
-    public void testGetDriver() {
-        System.out.println("getDriver");
-        Car instance = null;
-        Employee expResult = null;
-        Employee result = instance.getDriver();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getName method, of class Car.
      */
     @Test
@@ -166,19 +157,6 @@ public class CarTest {
     }
 
     /**
-     * Test of changeDriver method, of class Car.
-     */
-    @Test
-    public void testChangeDriver() {
-        System.out.println("changeDriver");
-        int changedEmloyeeNumber = 0;
-        Car instance = null;
-        instance.changeDriver(changedEmloyeeNumber);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of toString method, of class Car.
      */
     @Test
@@ -191,5 +169,5 @@ public class CarTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
 }

@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-
+/**
+ *
+ * @author Damian
+ */
 public class LoadFileEmployee implements LoadFile {
        
     @Override

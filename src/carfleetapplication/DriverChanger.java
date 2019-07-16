@@ -8,16 +8,11 @@ import java.util.ArrayList;
  */
 public class DriverChanger {
     
-    private ArrayList<Car> listOfCars;
-    
-    private void setListOfCars() {
-        listOfCars=SaveFileCar.getListOfCars();
-    }
-    
     public Car selectCarToChangeDriver(int selectedCar, int selectedDriver) {
-        setListOfCars();
+        ArrayList<Car> listOfCars=SaveFileCar.getListOfCars();
         Car car=listOfCars.get(selectedCar);
-        car.changeDriver(selectedDriver);
+        Employee driver=SaveFileEmployee.getDriver(selectedDriver);
+        car.setDriver(driver);
         return car;
     }
 }

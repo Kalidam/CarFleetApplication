@@ -23,6 +23,10 @@ public class SaveFileEmployee implements SaveFile {
         listOfEmployees.add(employee);
     }
     
+    public static Employee getDriver (int employeeDriver) {
+        return listOfEmployees.get(employeeDriver);
+    }
+    
     public static void removeEmployeeFromFile() {
         Employee employee=EmployeeFromListRemover.selectEmployeeToRemove();
         listOfEmployees.remove(employee);

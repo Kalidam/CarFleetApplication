@@ -1,6 +1,11 @@
 package carfleetapplication;
 
+import java.util.Objects;
 
+/**
+ *
+ * @author Damian
+ */
 public class Employee {
     
     private String name, surname;
@@ -26,5 +31,27 @@ public class Employee {
     @Override
     public String toString() {
         return String.format("Imię pracownika %s nazwisko pracownika %s", name, surname);
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Employee other = (Employee) obj;
+        boolean areNameEqual=EqualsUtility.areStringsEqual(name, other.name);
+        boolean areSurnameEqual=EqualsUtility.areStringsEqual(surname, other.surname);
+        return areNameEqual && areSurnameEqual;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 29 * hash + Objects.hashCode(this.name);
+        hash = 29 * hash + Objects.hashCode(this.surname);
+        return hash;
     }
 }

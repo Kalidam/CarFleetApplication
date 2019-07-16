@@ -6,7 +6,6 @@ import java.util.Scanner;
  *
  * @author Damian
  */
-
 public class ScannerUtility {
 
     private static final Scanner SCANNER=new Scanner(System.in);

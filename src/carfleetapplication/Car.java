@@ -1,33 +1,32 @@
 package carfleetapplication;
 
-import java.util.ArrayList;
+import java.util.Objects;
+
+/**
+ *
+ * @author Damian
+ */
 
 public class Car {
 
     private String registrationNumber;
     private CarOverview carOverview;
-    private ArrayList <Employee> listOfEmployees;
     private Employee driver;
     
-    public Car (CarOverview carOverview, String registrationNumber, int employeeNumber) {
-        setListOfEmploies();
+    public Car (CarOverview carOverview, String registrationNumber, Employee driver) {
         setCarOverview(carOverview);
-        setDriverFromListOfEmployees(employeeNumber);
+        setDriver(driver);
         setRegistrationNumber(registrationNumber);
     }
     
-    public void setListOfEmploies() {
-        this.listOfEmployees=SaveFileEmployee.getListOfEmployees();
+    public void setDriver(Employee driver) {
+        this.driver=driver;
     }
     
-    public void setDriverFromListOfEmployees(int employeeNumber) throws NullPointerException {
-        if(!listOfEmployees.isEmpty()){
-            driver=listOfEmployees.get(employeeNumber);
-        }else{
-            throw new NullPointerException("Lista pracowników jest pusta!");
-        }
+    public Employee getDriver() {
+        return driver;
     }
-    
+        
     public void setCarOverview(CarOverview carOverview) {
         this.carOverview=carOverview;
     }
@@ -47,11 +46,7 @@ public class Car {
     public String getRegistrationNumber() {
         return registrationNumber;
     }
-    
-    public Employee getDriver() {
-        return driver;
-    }
-    
+        
     public String getName() {
         return driver.getName();
     }
@@ -60,12 +55,32 @@ public class Car {
         return driver.getSurname();
     }
     
-    public void changeDriver(int changedEmloyeeNumber) {
-        setDriverFromListOfEmployees(changedEmloyeeNumber);
-    }
-    
     @Override
     public String toString() {
         return String.format("Marka %s model %s numer rejestracyjny %s dane kierowcy %s", carOverview.getBrand(), carOverview.getModel(), registrationNumber, driver.toString());
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Car other = (Car) obj;
+        boolean areRegistrationNumberEqual=EqualsUtility.areStringsEqual(registrationNumber, other.registrationNumber);
+        boolean isCarOverviewTrue=carOverview.equals(other.carOverview);
+        boolean isDriverTrue=driver.equals(other.driver);
+        return areRegistrationNumberEqual && isCarOverviewTrue && isDriverTrue;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.registrationNumber);
+        hash = 89 * hash + Objects.hashCode(this.carOverview);
+        hash = 89 * hash + Objects.hashCode(this.driver);
+        return hash;
     }
 }

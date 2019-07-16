@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Dell
+ * @author Damian
  */
 public class CarFromListRemover {
     
@@ -20,5 +20,4 @@ public class CarFromListRemover {
         int carToRemove=ScannerUtility.getIntFromUser("Wybierz z listy samochód, który chcesz usunąć");
         return listOfCars.get(carToRemove);
     }
-    
 }

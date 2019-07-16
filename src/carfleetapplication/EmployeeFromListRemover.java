@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Dell
+ * @author Damian
  */
 public class EmployeeFromListRemover {
     

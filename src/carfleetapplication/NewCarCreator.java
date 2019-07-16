@@ -1,5 +1,7 @@
 package carfleetapplication;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Damian
@@ -13,10 +15,16 @@ public class NewCarCreator {
         String registrationNumber=ScannerUtility.getTextFromUser("Podaj numer rejestracyjny pojazdu.");
         SaveFileEmployee.printListOfEmloyees();
         int employeeNumber=ScannerUtility.getIntFromUser("Wybierz pracownika z listy poprzez podanie jego numeru.");
-        return createCar(carOverview, registrationNumber, employeeNumber);
+        Employee driver=getDriverFromListOfEmployees(employeeNumber);
+        return new Car(carOverview, registrationNumber, driver);
     }
     
-    public static Car createCar(CarOverview carOverview, String registrationNumber, int employeeNumber) {
-        return new Car(carOverview, registrationNumber, employeeNumber);
+    private static Employee getDriverFromListOfEmployees(int employeeNumber) throws NullPointerException {
+        ArrayList <Employee> listOfEmployees=SaveFileEmployee.getListOfEmployees();
+        if(!listOfEmployees.isEmpty()){
+            return listOfEmployees.get(employeeNumber);
+        }else{
+            throw new NullPointerException("Lista pracowników jest pusta!");
+        }
     }
 }

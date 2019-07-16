@@ -19,7 +19,8 @@ public class SaveFileCar implements SaveFile {
     }
     
     public static void addToListCarLoadedFromFile(CarOverview carOverview, String registrationNumber, int employeeNumber) {
-        Car car=NewCarCreator.createCar(carOverview, registrationNumber, employeeNumber);
+        Employee driver= SaveFileEmployee.getDriver(employeeNumber);
+        Car car=new Car(carOverview, registrationNumber, driver);
         listOfCars.add(car);
     }
     
