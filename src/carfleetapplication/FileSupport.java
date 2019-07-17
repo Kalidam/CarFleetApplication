@@ -38,7 +38,7 @@ public class FileSupport {
     }
     
     public void setExtensions(String[] extensions) {
-        this.extensions=extensions;
+        this.extensions=extensions.clone();
         setPatterns();
     }
     

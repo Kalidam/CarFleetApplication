@@ -30,27 +30,41 @@ public class FileSupportTest {
      * Test of setFileLocation method, of class FileSupport.
      */
     @Test
-    public void testSetFileLocation() {
+    public void testSetFileLocationSuccess() {
         System.out.println("setFileLocation");
-        String fileLocationToCheck = "";
-        FileSupport instance = null;
-        instance.setFileLocation(fileLocationToCheck);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String FILE_LOCATION_TO_CHECK = "C:\\Program Files\\test.txt";
+        final String[] EXTENSIONS = new String[]{"txt", "xls"};
+        fileSupport = new FileSupport(EXTENSIONS);
+        fileSupport.setFileLocation(FILE_LOCATION_TO_CHECK);
     }
 
     /**
+     * Test of setFileLocation method, of class FileSupport.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void testSetFileLocation() {
+        System.out.println("setFileLocation");
+        final String FILE_LOCATION_TO_CHECK = "";
+        fileSupport.setFileLocation(FILE_LOCATION_TO_CHECK);
+    }
+    
+    /**
      * Test of getFileLocation method, of class FileSupport.
+     * @throws java.lang.NoSuchFieldException
+     * @throws java.lang.IllegalAccessException
      */
     @Test
-    public void testGetFileLocation() {
+    public void testGetFileLocation() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("getFileLocation");
-        FileSupport instance = null;
-        String expResult = "";
-        String result = instance.getFileLocation();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String FILE_LOCATION = "C:\\Program Files\\test.txt";
+        final String FIELD_NAME = "fileLocation";
+        final Field field = fileSupport.getClass().getDeclaredField(FIELD_NAME);
+        field.setAccessible(true);
+        
+        field.set(fileSupport, FILE_LOCATION);
+        final String RESULT = fileSupport.getFileLocation();
+
+        assertEquals("Pola nie pasują", RESULT, FILE_LOCATION);
     }
 
     /**
@@ -89,17 +103,4 @@ public class FileSupportTest {
 
         assertEquals("Pola nie pasują", RESULT, EXTENSIONS);
     }
-
-    /**
-     * Test of printExtensions method, of class FileSupport.
-     */
-    @Test
-    public void testPrintExtensions() {
-        System.out.println("printExtensions");
-        FileSupport instance = null;
-        instance.printExtensions();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
