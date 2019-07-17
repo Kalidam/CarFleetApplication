@@ -35,7 +35,7 @@ public class CarOverviewTest {
     @Test
     public void testSetModel() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("setModel");
-        final String MODEL="Astra";
+        final String MODEL = "Astra";
         final String FIELD_NAME = "model";
         
         carOverview.setModel(MODEL);
@@ -53,7 +53,7 @@ public class CarOverviewTest {
     @Test
     public void testSetBrand() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("setBrand");
-        final String BRAND="Opel";
+        final String BRAND = "Opel";
         final String FIELD_NAME = "brand";
         
         carOverview.setModel(BRAND);
@@ -72,7 +72,7 @@ public class CarOverviewTest {
     public void testGetModel() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("getModel");
         final String MODEL = "ourmodel";
-        final String FIELD_NAME = "registrationNumber";
+        final String FIELD_NAME = "model";
         final Field field = carOverview.getClass().getDeclaredField(FIELD_NAME);
         field.setAccessible(true);
         

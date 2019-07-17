@@ -20,9 +20,9 @@ public class EmployeeTest {
     
     @Before
     public void setUp() {
-        String name="Andrzej";
-        String surname="Nowak";
-        employee=new Employee(name,surname);
+        String name = "Andrzej";
+        String surname = "Nowak";
+        employee = new Employee(name,surname);
     }
 
     /**

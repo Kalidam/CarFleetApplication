@@ -20,13 +20,13 @@ public class CarTest {
     
     @Before
     public void setUp() {
-        String brand="Opel";
-        String model="Astra";
-        CarOverview carOverview=new CarOverview(brand,model);
-        String name="Jan";
-        String surname="Kowalski";
-        Employee driver=new Employee(name,surname);
-        String registrationNumber="WPI 1234X";
+        String brand = "Opel";
+        String model = "Astra";
+        CarOverview carOverview = new CarOverview(brand,model);
+        String name = "Jan";
+        String surname = "Kowalski";
+        Employee driver = new Employee(name,surname);
+        String registrationNumber = "WPI 1234X";
         car=new Car(carOverview,registrationNumber,driver);
     }
 
@@ -38,10 +38,10 @@ public class CarTest {
     @Test
     public void testSetDriver() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("setDriver");
-        final String NAME="Janek";
-        final String SURNAME="Jankowski";
+        final String NAME = "Janek";
+        final String SURNAME = "Jankowski";
         final String FIELD_NAME = "driver";
-        final Employee DRIVER=new Employee(NAME, SURNAME);
+        final Employee DRIVER = new Employee(NAME, SURNAME);
         
         car.setDriver(DRIVER); 
         final Field field = car.getClass().getDeclaredField(FIELD_NAME);
@@ -58,10 +58,10 @@ public class CarTest {
     @Test
     public void testGetDriver() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("getDriver");
-        final String NAME="Janek";
-        final String SURNAME="Jankowski";
+        final String NAME = "Janek";
+        final String SURNAME = "Jankowski";
         final String FIELD_NAME = "driver";
-        final Employee DRIVER=new Employee(NAME, SURNAME);
+        final Employee DRIVER = new Employee(NAME, SURNAME);
         final Field field = car.getClass().getDeclaredField(FIELD_NAME);
         field.setAccessible(true);
         
@@ -79,10 +79,10 @@ public class CarTest {
     @Test
     public void testSetCarOverview() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("setCarOverview");
-        final String BRAND="Opel";
-        final String MODEL="Omega";
+        final String BRAND = "Opel";
+        final String MODEL = "Omega";
         final String FIELD_NAME = "carOverview";
-        final CarOverview CAR_OVERVIEW=new CarOverview(MODEL, BRAND);
+        final CarOverview CAR_OVERVIEW = new CarOverview(MODEL, BRAND);
         
         car.setCarOverview(CAR_OVERVIEW); 
         final Field field = car.getClass().getDeclaredField(FIELD_NAME);
@@ -173,7 +173,7 @@ public class CarTest {
         final String REGISTRATION_NUMBER2="SO9876Z";
         Car obj = new Car(carOverview1,REGISTRATION_NUMBER1, driver1);
         Car instance = new Car(carOverview2,REGISTRATION_NUMBER2, driver2);
-        final boolean EXPECTED_RESULT = true;
+        final boolean EXPECTED_RESULT = false;
         
         final boolean RESULT = instance.equals(obj);
         

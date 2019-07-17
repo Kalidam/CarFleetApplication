@@ -5,6 +5,7 @@
  */
 package carfleetapplication;
 
+import java.lang.reflect.Field;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -14,8 +15,11 @@ import static org.junit.Assert.*;
  * @author Damian
  */
 public class FileSupportTest {
+    FileSupport fileSupport;
     
     public FileSupportTest() {
+        String[] extensions = new String[]{"txt", "xls"};
+        fileSupport = new FileSupport(extensions);
     }
     
     @Before
@@ -51,15 +55,20 @@ public class FileSupportTest {
 
     /**
      * Test of setExtensions method, of class FileSupport.
+     * @throws java.lang.NoSuchFieldException
+     * @throws java.lang.IllegalAccessException
      */
     @Test
-    public void testSetExtensions() {
+    public void testSetExtensions() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("setExtensions");
-        String[] extensions = null;
-        FileSupport instance = null;
-        instance.setExtensions(extensions);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String[] EXTENSIONS = new String[]{"txt","xls"};
+        final String FIELD_NAME = "extensions";
+        
+        fileSupport.setExtensions(EXTENSIONS); 
+        final Field field = fileSupport.getClass().getDeclaredField(FIELD_NAME);
+        field.setAccessible(true);
+        
+        assertEquals("Pola nie pasują", field.get(fileSupport), EXTENSIONS);
     }
 
     /**

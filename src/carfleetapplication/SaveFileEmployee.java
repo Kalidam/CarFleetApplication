@@ -19,7 +19,7 @@ public class SaveFileEmployee implements SaveFile {
     }
      
     public static void addToListEmployeeLoadedFromFile(String name, String surname){
-        Employee employee=NewEmployeeCreator.createEmployee(name, surname);
+        Employee employee=new Employee(name, surname);
         listOfEmployees.add(employee);
     }
     
