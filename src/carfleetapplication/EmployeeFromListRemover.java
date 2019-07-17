@@ -42,8 +42,8 @@ public class EmployeeFromListRemover {
         for (Car car:listOfCars){
             carNumber++;
             if(isEmployeeNameAndSurnameAreThisSameAsDriver(car, employeeToCheck)){
-                brand=car.getBrand();
-                model=car.getModel();
+                brand=car.getCarOverview().getBrand();
+                model=car.getCarOverview().getModel();
                 registrationNumber=car.getRegistrationNumber();
                 return true;
             }
@@ -52,8 +52,8 @@ public class EmployeeFromListRemover {
     }
     
     private static boolean isEmployeeNameAndSurnameAreThisSameAsDriver (Car car, Employee employeeToCheck){
-        boolean isSurnameThisSame=car.getSurname().equals(employeeToCheck.getSurname());
-        boolean isNameThisSame=car.getName().equals(employeeToCheck.getName());
+        boolean isSurnameThisSame=car.getDriver().getSurname().equals(employeeToCheck.getSurname());
+        boolean isNameThisSame=car.getDriver().getName().equals(employeeToCheck.getName());
         return isNameThisSame && isSurnameThisSame;
     }
     

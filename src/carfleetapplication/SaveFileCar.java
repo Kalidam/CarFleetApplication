@@ -73,11 +73,13 @@ public class SaveFileCar implements SaveFile {
     public void saveToFile(String fileLocation) {
         try (PrintWriter pw=new PrintWriter(fileLocation)){
             for(int i=0; i<listOfCars.size(); i++){
-                String brand=listOfCars.get(i).getBrand();
-                String model=listOfCars.get(i).getModel();
+                CarOverview tempCarOverview = listOfCars.get(i).getCarOverview();
+                Employee tempDriver=listOfCars.get(i).getDriver();
+                String brand=tempCarOverview.getBrand();
+                String model=tempCarOverview.getModel();
                 String registrationNumber=listOfCars.get(i).getRegistrationNumber();
-                String name=listOfCars.get(i).getName();
-                String surname=listOfCars.get(i).getSurname();
+                String name=tempDriver.getName();
+                String surname=tempDriver.getSurname();
                 String fullInformation=brand+";"+model+";"+registrationNumber+";"+name+";"+surname;
                 pw.println(fullInformation);
             }

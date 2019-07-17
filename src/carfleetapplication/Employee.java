@@ -35,13 +35,13 @@ public class Employee {
     
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this==obj)
             return true;
-        if (obj == null)
+        if (obj==null)
             return false;
-        if (getClass() != obj.getClass())
+        if (getClass()!=obj.getClass())
             return false;
-        Employee other = (Employee) obj;
+        Employee other=(Employee) obj;
         boolean areNameEqual=EqualsUtility.areObjectsEqual(name, other.name);
         boolean areSurnameEqual=EqualsUtility.areObjectsEqual(surname, other.surname);
         return areNameEqual && areSurnameEqual;
@@ -49,9 +49,9 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.name);
-        hash = 29 * hash + Objects.hashCode(this.surname);
+        int hash=3;
+        hash=29 * hash + Objects.hashCode(this.name);
+        hash=29 * hash + Objects.hashCode(this.surname);
         return hash;
     }
 }

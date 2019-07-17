@@ -31,28 +31,16 @@ public class Car {
         this.carOverview=carOverview;
     }
     
+    public CarOverview getCarOverview() {
+        return carOverview;
+    }
+    
     public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber=registrationNumber;
     }
     
-    public String getBrand() {
-        return carOverview.getBrand();
-    }
-    
-    public String getModel() {
-        return carOverview.getModel();
-    }
-    
     public String getRegistrationNumber() {
         return registrationNumber;
-    }
-        
-    public String getName() {
-        return driver.getName();
-    }
-    
-    public String getSurname() {
-        return driver.getSurname();
     }
     
     @Override
@@ -69,10 +57,10 @@ public class Car {
         if (getClass() != obj.getClass())
             return false;
         Car other = (Car) obj;
-        boolean areRegistrationNumberEqual=EqualsUtility.areObjectsEqual(registrationNumber, other.registrationNumber);
-        boolean isCarOverviewTrue=carOverview.equals(other.carOverview);
-        boolean isDriverTrue=driver.equals(other.driver);
-        return areRegistrationNumberEqual && isCarOverviewTrue && isDriverTrue;
+        boolean areRegistrationNumbersEqual=EqualsUtility.areObjectsEqual(registrationNumber, other.registrationNumber);
+        boolean isCarOverviewEqual=carOverview.equals(other.carOverview);
+        boolean isDriverEqual=driver.equals(other.driver);
+        return areRegistrationNumbersEqual && isCarOverviewEqual && isDriverEqual;
     }
 
     @Override

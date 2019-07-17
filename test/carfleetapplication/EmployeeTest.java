@@ -27,6 +27,8 @@ public class EmployeeTest {
 
     /**
      * Test of setName method, of class Employee.
+     * @throws java.lang.NoSuchFieldException
+     * @throws java.lang.IllegalAccessException
      */
     @Test
     public void testSetName() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
@@ -43,12 +45,14 @@ public class EmployeeTest {
 
     /**
      * Test of setSurname method, of class Employee.
+     * @throws java.lang.NoSuchFieldException
+     * @throws java.lang.IllegalAccessException
      */
     @Test
     public void testSetSurname() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("setSurname");
-        final String SURNAME = "ourname";
-        final String FIELD_NAME = "name";
+        final String SURNAME = "oursurname";
+        final String FIELD_NAME = "surname";
         
         employee.setSurname(SURNAME); 
         final Field field = employee.getClass().getDeclaredField(FIELD_NAME);
@@ -59,23 +63,27 @@ public class EmployeeTest {
 
     /**
      * Test of getName method, of class Employee.
+     * @throws java.lang.NoSuchFieldException
+     * @throws java.lang.IllegalAccessException
      */
     @Test
     public void testGetName() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("getName");
-        final String NAME = "ourmname";
+        final String NAME = "ourname";
         final String FIELD_NAME = "name";
         final Field field = employee.getClass().getDeclaredField(FIELD_NAME);
         field.setAccessible(true);
         
         field.set(employee, NAME);
-        final String result = employee.getName();
+        final String RESULT = employee.getName();
 
-        assertEquals("Pola nie pasują", result, NAME);
+        assertEquals("Pola nie pasują", RESULT, NAME);
     }
 
     /**
      * Test of getSurname method, of class Employee.
+     * @throws java.lang.NoSuchFieldException
+     * @throws java.lang.IllegalAccessException
      */
     @Test
     public void testGetSurname() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
@@ -86,9 +94,9 @@ public class EmployeeTest {
         field.setAccessible(true);
         
         field.set(employee, SURNAME);
-        final String result = employee.getSurname();
+        final String RESULT = employee.getSurname();
 
-        assertEquals("Pola nie pasują", result, SURNAME);
+        assertEquals("Pola nie pasują", RESULT, SURNAME);
     }
 
     /**
@@ -97,11 +105,10 @@ public class EmployeeTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Employee instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String EXPECTED_RESULT = String.format("Imię pracownika %s nazwisko pracownika %s", employee.getName(), employee.getSurname());
+        
+        final String RESULT = employee.toString();
+        
+        assertEquals("Pola nie pasują", RESULT, EXPECTED_RESULT);
     }
 }
