@@ -14,11 +14,11 @@ public class CarOverview {
         setBrand(brand);
     }
     
-    public void setModel(String model) {
+    public final void setModel(String model) {
         this.model=model;
     }
     
-    public void setBrand(String brand) {
+    public final void setBrand(String brand) {
         this.brand=brand;
     }
     

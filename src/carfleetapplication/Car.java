@@ -19,7 +19,7 @@ public class Car {
         setRegistrationNumber(registrationNumber);
     }
     
-    public void setDriver(Employee driver) {
+    public final void setDriver(Employee driver) {
         this.driver=driver;
     }
     
@@ -27,7 +27,7 @@ public class Car {
         return driver;
     }
         
-    public void setCarOverview(CarOverview carOverview) {
+    public final void setCarOverview(CarOverview carOverview) {
         this.carOverview=carOverview;
     }
     
@@ -35,7 +35,7 @@ public class Car {
         return carOverview;
     }
     
-    public void setRegistrationNumber(String registrationNumber) {
+    public final void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber=registrationNumber;
     }
     

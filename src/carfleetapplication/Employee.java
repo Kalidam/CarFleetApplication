@@ -15,10 +15,10 @@ public class Employee {
         setSurname(surname);
     }
     
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name=name;
     }
-    public void setSurname(String surname) {
+    public final void setSurname(String surname) {
         this.surname=surname;
     }
     public String getName() {

@@ -37,7 +37,7 @@ public class FileSupport {
         return fileLocation;
     }
     
-    public void setExtensions(String[] extensions) {
+    public final void setExtensions(String[] extensions) {
         this.extensions=extensions.clone();
         setPatterns();
     }

@@ -6,6 +6,7 @@
 package carfleetapplication;
 
 import java.lang.reflect.Field;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -17,13 +18,10 @@ import static org.junit.Assert.*;
 public class FileSupportTest {
     FileSupport fileSupport;
     
-    public FileSupportTest() {
-        String[] extensions = new String[]{"txt", "xls"};
-        fileSupport = new FileSupport(extensions);
-    }
-    
     @Before
     public void setUp() {
+        String[] extensions = new String[]{"txt", "xls"};
+        fileSupport = new FileSupport(extensions);
     }
 
     /**
@@ -82,7 +80,7 @@ public class FileSupportTest {
         final Field field = fileSupport.getClass().getDeclaredField(FIELD_NAME);
         field.setAccessible(true);
         
-        assertEquals("Pola nie pasują", field.get(fileSupport), EXTENSIONS);
+        Assert.assertArrayEquals("Pola nie pasują", (String[])field.get(fileSupport), EXTENSIONS);
     }
 
     /**
