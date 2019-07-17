@@ -41,7 +41,7 @@ public class EqualsUtilityTest {
         
         final boolean RESULT = EqualsUtility.areObjectsEqual(TYPE1, TYPE2);
         
-        assertEquals("Obiekty, które są nullami nie są tożsame",EXPECTED_RESULT, RESULT); 
+        assertEquals("Obiekty, które są dwoma Stringami nie są tożsame",EXPECTED_RESULT, RESULT); 
     }
     
     /**
@@ -56,7 +56,7 @@ public class EqualsUtilityTest {
         
         final boolean RESULT = EqualsUtility.areObjectsEqual(TYPE1, TYPE2);
         
-        assertEquals("Obiekty, które są nullami nie są tożsame",EXPECTED_RESULT, RESULT); 
+        assertEquals("Obiekty, który jeden jest nullem a drugim Stringiem nie są tożsame",EXPECTED_RESULT, RESULT); 
     }
     
     /**
@@ -71,6 +71,6 @@ public class EqualsUtilityTest {
         
         final boolean RESULT = EqualsUtility.areObjectsEqual(TYPE1, TYPE2);
         
-        assertEquals("Obiekty, które są nullami nie są tożsame",EXPECTED_RESULT, RESULT); 
+        assertEquals("Obiekty, które są róznymi obiektami nie są tożsame",EXPECTED_RESULT, RESULT); 
     }
 }

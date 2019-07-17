@@ -140,4 +140,43 @@ public class CarTest {
         
         assertEquals("Pola nie pasują", RESULT, EXPECTED_RESULT);
     }
+    
+    /**
+     * Test of equals method, of class CarOverview.
+     */
+    @Test
+    public void testTheSameEquals() {
+        System.out.println("equals");
+        CarOverview carOverview = new CarOverview("Opel", "Astra");
+        Employee driver = new Employee("Jan", "Nowak");
+        final String REGISTRATION_NUMBER="WPI1234A";
+        Car obj = new Car(carOverview,REGISTRATION_NUMBER, driver);
+        Car instance = new Car(carOverview,REGISTRATION_NUMBER, driver);
+        final boolean EXPECTED_RESULT = true;
+        
+        final boolean RESULT = instance.equals(obj);
+        
+        assertEquals("Obiekty, nie są tożsame", EXPECTED_RESULT, RESULT);
+    }
+    
+    /**
+     * Test of equals method, of class CarOverview.
+     */
+    @Test
+    public void testDifferentEquals() {
+        System.out.println("equals");
+        CarOverview carOverview1 = new CarOverview("Opel", "Astra");
+        CarOverview carOverview2 = new CarOverview("Skoda", "Fabia");
+        Employee driver1 = new Employee("Jan", "Nowak");
+        Employee driver2 = new Employee("Andrzej", "Kowalski");
+        final String REGISTRATION_NUMBER1="WPI1234A";
+        final String REGISTRATION_NUMBER2="SO9876Z";
+        Car obj = new Car(carOverview1,REGISTRATION_NUMBER1, driver1);
+        Car instance = new Car(carOverview2,REGISTRATION_NUMBER2, driver2);
+        final boolean EXPECTED_RESULT = true;
+        
+        final boolean RESULT = instance.equals(obj);
+        
+        assertEquals("Obiekty, nie są tożsame", EXPECTED_RESULT, RESULT);
+    }
 }

@@ -36,7 +36,7 @@ public class SaveFileEmployee implements SaveFile {
     public static void printListOfEmloyees(){
         if(!listOfEmployees.isEmpty()){
             for (int i=0; i<listOfEmployees.size(); i++){
-                System.out.println(i+". "+listOfEmployees.toString());
+                System.out.println(i+". "+listOfEmployees.get(i).toString());
             }
         }else{
             System.out.println("Lista pracowników jest pusta!");

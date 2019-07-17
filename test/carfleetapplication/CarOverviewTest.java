@@ -65,58 +65,69 @@ public class CarOverviewTest {
 
     /**
      * Test of getModel method, of class CarOverview.
+     * @throws java.lang.NoSuchFieldException
+     * @throws java.lang.IllegalAccessException
      */
     @Test
-    public void testGetModel() {
+    public void testGetModel() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("getModel");
-        CarOverview instance = null;
-        String expResult = "";
-        String result = instance.getModel();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String MODEL = "ourmodel";
+        final String FIELD_NAME = "registrationNumber";
+        final Field field = carOverview.getClass().getDeclaredField(FIELD_NAME);
+        field.setAccessible(true);
+        
+        field.set(carOverview, MODEL);
+        final String RESULT = carOverview.getModel();
+
+        assertEquals("Pola nie pasują", RESULT, MODEL);
     }
 
     /**
      * Test of getBrand method, of class CarOverview.
+     * @throws java.lang.NoSuchFieldException
+     * @throws java.lang.IllegalAccessException
      */
     @Test
-    public void testGetBrand() {
+    public void testGetBrand() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("getBrand");
-        CarOverview instance = null;
-        String expResult = "";
-        String result = instance.getBrand();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String BRAND = "ourmodel";
+        final String FIELD_NAME = "brand";
+        final Field field = carOverview.getClass().getDeclaredField(FIELD_NAME);
+        field.setAccessible(true);
+        
+        field.set(carOverview, BRAND);
+        final String RESULT = carOverview.getBrand();
+
+        assertEquals("Pola nie pasują", RESULT, BRAND);
     }
 
     /**
      * Test of equals method, of class CarOverview.
      */
     @Test
-    public void testEquals() {
+    public void testTheSameEquals() {
         System.out.println("equals");
-        Object obj = null;
-        CarOverview instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        CarOverview obj = new CarOverview("Opel", "Astra");
+        CarOverview instance = new CarOverview("Opel", "Astra");
+        final boolean EXPECTED_RESULT = true;
+        
+        final boolean RESULT = instance.equals(obj);
+        
+        assertEquals("Obiekty, nie są tożsame", EXPECTED_RESULT, RESULT);
     }
-
+    
     /**
-     * Test of hashCode method, of class CarOverview.
+     * Test of equals method, of class CarOverview.
      */
     @Test
-    public void testHashCode() {
-        System.out.println("hashCode");
-        CarOverview instance = null;
-        int expResult = 0;
-        int result = instance.hashCode();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testDifferentEquals() {
+        System.out.println("equals");
+        CarOverview obj = new CarOverview("Skoda", "Fabia");
+        CarOverview instance = new CarOverview("Opel", "Astra");
+        final boolean EXPECTED_RESULT = false;
+        
+        final boolean RESULT = instance.equals(obj);
+        
+        assertEquals("Obiekty, nie są tożsame", EXPECTED_RESULT, RESULT);
     }
 }
