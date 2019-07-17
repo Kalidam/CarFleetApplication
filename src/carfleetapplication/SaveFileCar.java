@@ -10,28 +10,28 @@ import java.util.ArrayList;
  */
 public class SaveFileCar implements SaveFile {
     
-    private static ArrayList <Car> listOfCars = new ArrayList<Car>();
+    private final static ArrayList <Car> LIST_OF_CARS = new ArrayList <Car>();
     
     public static void addToCarList() {
         Car car=NewCarCreator.setCarData();
-        listOfCars.add(car);
+        LIST_OF_CARS.add(car);
         System.out.println("Pomyślnie dodano samochód!");
     }
     
     public static void addToListCarLoadedFromFile(CarOverview carOverview, String registrationNumber, int employeeNumber) {
         Employee driver= SaveFileEmployee.getDriver(employeeNumber);
         Car car=new Car(carOverview, registrationNumber, driver);
-        listOfCars.add(car);
+        LIST_OF_CARS.add(car);
     }
     
     public static void removeCarFromList() {
         Car car=CarFromListRemover.removeCarFromList();
-        listOfCars.remove(car);
+        LIST_OF_CARS.remove(car);
         System.out.println("Pomyślnie usunięto samochód!");
     }
     
     public static ArrayList getListOfCars() {
-        return listOfCars;
+        return LIST_OF_CARS;
     }
     
     public static void selectNewDriverFromUser() {
@@ -45,14 +45,14 @@ public class SaveFileCar implements SaveFile {
     public static void changeDriver(int selectedCar, int selectedDriver) {
         DriverChanger changeDriver=new DriverChanger();
         Car car=changeDriver.selectCarToChangeDriver(selectedCar, selectedDriver);
-        listOfCars.set(selectedCar, car);
+        LIST_OF_CARS.set(selectedCar, car);
         System.out.println("Pomyślnie zmieniono kierowcę!");
     }
     
     public static void printListOfCars() {
-        if(!listOfCars.isEmpty()){
-            for (int i=0; i<listOfCars.size(); i++){
-                System.out.println(i+". "+listOfCars.toString());
+        if(!LIST_OF_CARS.isEmpty()){
+            for (int i=0; i<LIST_OF_CARS.size(); i++){
+                System.out.println(i+". "+LIST_OF_CARS.toString());
             }
         }else{
             System.out.println("Lista pojazdów jest pusta!");
@@ -72,12 +72,12 @@ public class SaveFileCar implements SaveFile {
     @Override
     public void saveToFile(String fileLocation) {
         try (PrintWriter pw=new PrintWriter(fileLocation)){
-            for(int i=0; i<listOfCars.size(); i++){
-                CarOverview tempCarOverview = listOfCars.get(i).getCarOverview();
-                Employee tempDriver=listOfCars.get(i).getDriver();
+            for(int i=0; i<LIST_OF_CARS.size(); i++){
+                CarOverview tempCarOverview = LIST_OF_CARS.get(i).getCarOverview();
+                Employee tempDriver=LIST_OF_CARS.get(i).getDriver();
                 String brand=tempCarOverview.getBrand();
                 String model=tempCarOverview.getModel();
-                String registrationNumber=listOfCars.get(i).getRegistrationNumber();
+                String registrationNumber=LIST_OF_CARS.get(i).getRegistrationNumber();
                 String name=tempDriver.getName();
                 String surname=tempDriver.getSurname();
                 String fullInformation=brand+";"+model+";"+registrationNumber+";"+name+";"+surname;

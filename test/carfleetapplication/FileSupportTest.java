@@ -32,7 +32,6 @@ public class FileSupportTest {
         System.out.println("setFileLocation");
         final String FILE_LOCATION_TO_CHECK = "C:\\Program Files\\test.txt";
         final String[] EXTENSIONS = new String[]{"txt", "xls"};
-        
         fileSupport = new FileSupport(EXTENSIONS);
         
         fileSupport.setFileLocation(FILE_LOCATION_TO_CHECK);

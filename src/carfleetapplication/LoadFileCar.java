@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class LoadFileCar implements LoadFile {
 
-    private ArrayList <Employee> listOfEmployees;
+    private ArrayList <Employee> listOfEmployees=new ArrayList <Employee>();
     
     @Override
     public void getFileLocationFromUserAndMakeIOOperaation(){
