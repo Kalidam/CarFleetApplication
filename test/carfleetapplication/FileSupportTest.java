@@ -73,16 +73,21 @@ public class FileSupportTest {
 
     /**
      * Test of getExtensions method, of class FileSupport.
+     * @throws java.lang.NoSuchFieldException
+     * @throws java.lang.IllegalAccessException
      */
     @Test
-    public void testGetExtensions() {
+    public void testGetExtensions() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         System.out.println("getExtensions");
-        FileSupport instance = null;
-        String[] expResult = null;
-        String[] result = instance.getExtensions();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        final String[] EXTENSIONS = new String[]{"txt","xls"};
+        final String FIELD_NAME = "extensions";
+        final Field field = fileSupport.getClass().getDeclaredField(FIELD_NAME);
+        field.setAccessible(true);
+        
+        field.set(fileSupport, EXTENSIONS);
+        final String[] RESULT = fileSupport.getExtensions();
+
+        assertEquals("Pola nie pasują", RESULT, EXTENSIONS);
     }
 
     /**
