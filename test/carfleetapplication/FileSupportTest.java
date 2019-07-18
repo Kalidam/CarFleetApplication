@@ -101,6 +101,6 @@ public class FileSupportTest {
         field.set(fileSupport, EXTENSIONS);
         final String[] RESULT = fileSupport.getExtensions();
 
-        assertEquals("Pola nie pasują", RESULT, EXTENSIONS);
+        Assert.assertArrayEquals("Pola nie pasują", RESULT, EXTENSIONS);
     }
 }
